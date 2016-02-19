@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="sign-up-container">
+		<h2>signup</h2>
+		<form action="/users" method="POST">
+			<input type="text" name="email" placeholder="email">
+			<input type="text" name="password" placeholder="password">
+			<input type="submit" value="Sign Up">
+		</form>
+	</div>
+	<div id="tell-more">
+		<h2>Tell us a bit more about yourself!</h2>
+		<form action="/users/personal" method="POST">
+			<input type="text" name="firstName" placeholder="first name">
+			<input type="text" name="lastName" placeholder="last name">
+			<input type="submit" value="Add">
+		</form>
+	</div>
+	
+
+<div id="login-container">
+	<h2>login</h2>
+		<form action="/users/login" method="POST">
+			<input type="text" name="email" placeholder="email">
+			<input type="text" name="password" placeholder="password">
+			<input type="submit" value="Log In">
+		</form>
+</div>
+		<a href="/">Logout</a>
+
+
+
+
+
+		<!-- <a href="/users/">my Page</a> -->
+</body>
+</html>

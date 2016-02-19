@@ -5,7 +5,6 @@ var mongoose 		  = require('mongoose'),
 
 var pharmSchema = new Schema({
 	name: {type: String, required: true},
-	
 	pharmacyName: {type: String, required: true},
 	pharmacyAddr: [addressSchema],
 	pharmacyPhone: {type: Number, required: true},

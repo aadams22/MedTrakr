@@ -5,13 +5,10 @@ var express        = require('express'),
     passport       = require('passport'),
     morgan         = require('morgan'),
     session        = require('express-session'),
-    port           = 3000 || process.env.PORT,
+    port           = process.env.PORT || 3000 ,
     app            = express();
 
 mongoose.connect('mongodb://localhost/med_models');
-
-var userController     = require('./controllers/userController'),
-		homeController     = require('./controllers/homeController');
 
 app.use(express.static('public'));
 
@@ -19,8 +16,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use(morgan('dev'));
+
 app.use(session({secret: 'secretsecretsecret', resave: true, saveUninitialized: true}))
 app.use(passport.initialize());
+app.use(passport.session());
+
+
+require('./config/passport.js')(passport);
 
 app.use(methodOverride(function(req, res){
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -30,11 +32,12 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
-app.use('/user', userController);
-app.use('/home', homeController);
+var userController = require('./controllers/userController.js');
+app.use('/users', userController);
+
 
 app.get('/', function(req,res){
-	res.redirect('/home');
+	res.render('index.ejs');
 })
 
  app.listen(port, function(){

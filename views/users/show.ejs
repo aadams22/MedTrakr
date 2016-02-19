@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Hi <%=info.firstName%></h2>
+
+		<h2>Add Medication</h2>
+		<form action="/users/<%=info.id%>" method="POST">
+			<input type="text" name="info.meds.name" placeholder="name">
+			<input type="text" name="info.meds.rx" placeholder="rX number">
+			<input type="text" name="info.meds.dosage" placeholder="dosage">
+			<input type="text" name="info.meds.directions" placeholder="directions">
+			<input type="text" name="info.meds.refills" placeholder="refills">
+
+			<input type="submit" value="Add">
+		</form>
+
+		<form action="/users/<%=info.id%>" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<button id="delete-button">Delete User</button>
+		</form>
+</body>
+</html>

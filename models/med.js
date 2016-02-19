@@ -6,12 +6,18 @@ var mongoose 		  = require('mongoose'),
 
 var medSchema = new Schema({
 	name: {type: String, required: true},
-
+	rx: {type: Number, required: true},
 	dosage: {type: Number, required: true},
-	pharmacy: [pharmSchema],
-	prescriber: [doctorSchema]
+	directions: {type: String, required: true},
+	// pharmacy: [pharmSchema],
+	// prescriber: [doctorSchema],
+	refills: {type: Number, required: true},
+	taken: {type: Boolean},
+	created_at: {type: Date, default: Date.now}
 
 });
+
+
 
 
 var Med = mongoose.model('Med', medSchema);
