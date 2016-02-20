@@ -7,16 +7,47 @@ body {
 	font-weight: 300;
 }
 
+#nav-container {
+	position: absolute;
+	z-index: 2;
+	background: lightgrey;
+	opacity: .6;
+	height: 150px; width: 12%;
+	border-radius: 10px;
+	overflow: hidden;
+	transition-property: 100%;
+	transition-duration: 1s;
+	transition-timing-function: easeInOutQuart;
+}
+
+#nav-container > ul > li {
+	padding: .5em;
+}
+
+#nav-container:hover {
+	height: 98%;
+	width: 98%;
+	text-align: center;
+	font-size: 2em;
+	opacity: .9;
+}
+
+/*#nav-container > ul > li:hover {
+
+}*/
+
 
 /*HOME PAGE*/
 #home-container {
-	height: 300px; width: 30%;
+	margin-top: 30%;
+	height: 40%; width: 30%;
 	text-align: center;
 	/*border: 1px solid red;*/
 	background: lightgrey;
 	opacity: .6;
 	border-radius: 10px;
 	padding: 1em;
+	padding-bottom: 4em;
 	margin: 0 auto;
 
 }
@@ -26,8 +57,8 @@ body {
 }
 
 #tag-line {
-	padding-top: 2em;
-	padding-bottom: 2em;
+	padding-top: 10%;
+	padding-bottom: 3em;
 	font-weight: 100;
 }
 
@@ -40,6 +71,29 @@ body {
 	background-color: darkgrey;
 }
 
+#login-container {
+	padding: 1em;
+}
+
+input {
+	padding: 1em;
+}
+
+input:hover {
+	background-color: darkgrey;
+}
+
+.meds-container {
+	display: flex;
+	overflow: hidden;
+	background: lightgrey;
+	opacity: .6;
+}
+
+
+li {
+	list-style: none;
+}
 
 a {
 	color: black;
