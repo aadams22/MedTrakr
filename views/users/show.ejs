@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+	<% include ../partials/header.ejs %>
 	<h2>Hi <%=info.profile.firstName%></h2>
 		<h2>My Profile</h2>
 		<div id="tell-more">
@@ -43,29 +39,31 @@
 
 
 		<h2>Medications</h2>
-		<div id="meds-container">
-		<h3>Add Medication</h3>
-			<form action="/users/<%=info.id%>" method="POST">
-				<input type="text" name="name" placeholder="name">
-				<input type="text" name="rx" placeholder="rX number">
-				<input type="text" name="dosage" placeholder="dosage">
-				<input type="text" name="directions" placeholder="directions">
-				<input type="text" name="meds.refills" placeholder="refills">
-				<input type="submit" value="Add">
-			</form>
-
-				<h3>Edit Meds</h3>
+			<div id="meds-container">
+			<h3>Add Medication</h3>
 				<form action="/users/<%=info.id%>" method="POST">
-					<input type="text" name="name" placeholder="Name">
-					<input type="text" name="rx" placeholder="rX Number">
-					<input type="text" name="dosage" placeholder="Dosage">
-					<input type="text" name="directions" placeholder="Directions">
+					<input type="text" name="name" placeholder="name">
+					<input type="text" name="rx" placeholder="rX number">
+					<input type="text" name="dosage" placeholder="dosage">
+					<input type="text" name="directions" placeholder="directions">
 					<input type="text" name="refills" placeholder="refills">
-					<input type="hidden" name="_method" value="PUT"/>
-				<input type="submit" value="Edit">
-			</form>
-		</div>
+					<input type="submit" value="Add">
+				</form>
 
+					<h3>Edit Meds</h3>
+					<form action="/users/<%=info.id%>" method="POST">
+						<input type="text" name="name" placeholder="Name">
+						<input type="text" name="rx" placeholder="rX Number">
+						<input type="text" name="dosage" placeholder="Dosage">
+						<input type="text" name="directions" placeholder="Directions">
+						<input type="text" name="refills" placeholder="refills">
+						<input type="hidden" name="_method" value="PUT"/>
+					<input type="submit" value="Edit">
+				</form>
+			</div>
+
+		<h2>Account Settings</h2>
+		<h3>To delete your account: </h3>
 		<form action="/users/<%=info.id%>" method="POST">
 			<input type="hidden" name="_method" value="DELETE">
 			<button id="delete-button">Delete My Account</button>

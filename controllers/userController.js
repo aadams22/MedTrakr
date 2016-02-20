@@ -64,20 +64,18 @@ router.get('/', function(req,res){
 
 //===================================================
 //ADD MEDS
+//!!!CURRENT ISSUE: need a different route 
+//for adding doctor or else it will push into meds and won't work 
 router.post('/:id', function(req,res){
-	console.log("This is req.body: " + req.body);
 	var newMed = new Med(req.body);
-	console.log("This is the newMed: " + newMed);
-	// console.log(req.params.id);
+	// console.log("This is the newMed: " + newMed);
 	User.findById(req.params.id, function(err,data){
-		console.log("This is the data: " + data);
 		data.meds.push(newMed);
-		console.log("this is data.meds: " + data.meds);
+		// console.log("this is data.meds: " + data.meds);
 		data.save(function(err,data){
 			res.redirect('/users/' + req.params.id);
 		})		
 	})
-
 });
 
 
@@ -93,8 +91,8 @@ router.put('/:id', function(req,res){
 module.exports = router;
 
 
-
-
+	// console.log("This is req.body: " + req.body);
+	// console.log("This is the data: " + data);
 
 
 
