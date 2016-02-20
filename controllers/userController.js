@@ -1,6 +1,5 @@
 var router		 = require('express').Router(),
 		passport   = require('passport'),
-		Address		 = require('../models/address.js'),
 		Doctor		 = require('../models/doctor.js'),
 		Med				 = require('../models/med.js'),
 		Pharmacy	 = require('../models/pharmacy.js'),
@@ -24,7 +23,8 @@ router.get('/:id', isLoggedIn, function(req,res){
 	})
 })
 
-//make post router for adding info about yourself to send to database
+
+
 
 //DELETE
 router.delete('/:id', function(req,res){
@@ -65,14 +65,14 @@ router.get('/', function(req,res){
 //===================================================
 //ADD MEDS
 router.post('/:id', function(req,res){
-	// console.log(req.body);
+	console.log("This is req.body: " + req.body);
 	var newMed = new Med(req.body);
-	// console.log(newLocal);
+	console.log("This is the newMed: " + newMed);
 	// console.log(req.params.id);
 	User.findById(req.params.id, function(err,data){
-		// console.log(data.locations);
-		data.meds.push(newLocal);
-		// console.log(data.locations);
+		console.log("This is the data: " + data);
+		data.meds.push(newMed);
+		console.log("this is data.meds: " + data.meds);
 		data.save(function(err,data){
 			res.redirect('/users/' + req.params.id);
 		})		
@@ -80,14 +80,17 @@ router.post('/:id', function(req,res){
 
 });
 
+
+//ADD INFO TO PROFILE && EDIT MEDS
+router.put('/:id', function(req,res){
+	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
+		res.redirect('/users/' + req.params.id);
+	})
+});
+
+
+
 module.exports = router;
-
-
-
-
-
-
-
 
 
 
