@@ -15,6 +15,8 @@ router.get('/', function(req,res){
 		})
 })
 
+
+
 //SHOW
 router.get('/:id', isLoggedIn, function(req,res){
 	req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
@@ -23,11 +25,17 @@ router.get('/:id', isLoggedIn, function(req,res){
 	})
 })
 
-
+//PROFILE
+router.get('/:id/myprofile', function(req,res){
+	res.locals.login = req.isAuthenticated();
+	User.find({}, function(err,data){
+		res.render('users/myprofile.ejs', {info: data})
+	})
+})
 
 
 //DELETE
-router.delete('/:id', function(req,res){
+router.delete('/:id/myprofile', function(req,res){
 	User.findByIdAndRemove(req.params.id, function(err, data){
 		res.redirect('/users/');
 	})
@@ -78,11 +86,17 @@ router.post('/:id', function(req,res){
 	})
 });
 
-
-//ADD INFO TO PROFILE && EDIT MEDS
-router.put('/:id', function(req,res){
+//EDIT MEDS
+router.put('/:id/', function(req,res){
 	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
 		res.redirect('/users/' + req.params.id);
+	})
+});
+
+//ADD INFO TO PROFILE
+router.put('/:id/profile', function(req,res){
+	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
+		res.redirect('/users/profile/' + req.params.id);
 	})
 });
 

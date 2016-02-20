@@ -1,0 +1,32 @@
+<!DOCTYPE html>	
+	<% include ../partials/header.ejs %>
+	
+<h2>My Profile</h2>
+	<div id="tell-more">
+		<h2>Tell us a bit more about yourself!</h2>
+		<form action="/users/<%=info.id%>/myprofile" method="POST">
+			<h3>Personal Info:</h3>
+			<input type="text" name="profile.firstName" placeholder="first name">
+			<input type="text" name="profile.lastName" placeholder="last name">
+			<input type="text" name="profile.dob" placeholder="MM/DD/YYYY">
+			
+
+			<h3>Address:</h3>
+			<input type="text" name="address.addType" placeholder="Home? Work?">
+			<input type="text" name="address.aptNum" placeholder="Apt. Number">
+			<input type="text" name="address.addr1" placeholder="Street Address">
+			<input type="text" name="address.city" placeholder="City">
+			<input type="text" name="address.state" placeholder="State">
+			<input type="text" name="address.state" placeholder="Zip">
+			<input type="hidden" name="_method" value="PUT"/></br>
+			<input type="submit" value="Add">
+		</form>
+	</div>
+
+	<h2>Account Settings</h2>
+		<h3>To delete your account: </h3>
+		<form action="/users/<%=info.id%>/myprofile" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<button id="delete-button">Delete My Account</button>
+		</form>
+
