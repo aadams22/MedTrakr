@@ -100,6 +100,17 @@ router.put('/:id/profile', function(req,res){
 	})
 });
 
+router.post('/:id/myprofile', function(req,res){
+	var newDoc = new Doctor(req.body);
+	console.log("This is the newDoc: " + newDoc);
+	User.findById(req.params.id, function(err,data){
+		data.doctor.push(newDoc);
+		console.log("this is data.doctor: " + data.doctor);
+		data.save(function(err,data){
+			res.redirect('/users/' + req.params.id);
+		})		
+	})
+});
 
 
 module.exports = router;

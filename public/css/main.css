@@ -1,6 +1,6 @@
 body {
 	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
-	background-size: cover;
+	background-size: 1400px;
 	background-position: center fixed;
 	background-repeat: no-repeat;
 	font-family: 'Lato', sans-serif;
@@ -90,12 +90,64 @@ input:hover {
 }
 
 .meds-container {
-	display: flex;
+	display: inline-block;
 	overflow: hidden;
 	background: lightgrey;
 	opacity: .6;
+	margin-top: 1%;
+	margin-bottom: 5%;
+	border-radius: 10px;
+	height: 50px; width: 20%;
+	padding: 1em;
+	position: fixed;
 }
 
+.meds-container > h3 {
+	padding-bottom: 70px;
+}
+
+#medcont2 {
+	margin-left: 66%;
+}
+
+#medcont1 {
+	margin-left: 41%;
+}
+
+#medcont2:hover {
+	text-align: center;
+	height: 60%; width: 40%;
+	opacity: .9;
+}
+
+#medcont1:hover {
+	text-align: center;
+	height: 60%; width: 40%;
+	opacity: .9;
+}
+
+#profile-link {
+	margin-left: 16%;
+	margin-top: 10px;
+	width: 30%;
+	background-color: lightgrey;
+	opacity: .6;
+	border-radius: 10px;
+	padding-top: 2em;
+	padding-bottom: .8em;
+	padding-left: 1em;
+	padding-right: 6em;
+	font-size: 1.3em;
+}
+
+#users-name {
+	border: 1px solid black;
+	padding-top: 2em;
+	width: 30%;
+	z-index: -1;
+	margin-top: 70%;
+	font-size: 2.5em;
+}
 
 li {
 	list-style: none;
@@ -105,6 +157,8 @@ a {
 	color: black;
 	text-decoration: none;
 }
+
+
 
 
 /*MEDIA*/
