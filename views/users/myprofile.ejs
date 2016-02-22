@@ -1,9 +1,9 @@
 <!DOCTYPE html>	
 	<% include ../partials/header.ejs %>
 	
-<h2>My Profile</h2>
-	<div id="tell-more">
-		<h2>Tell us a bit more about yourself!</h2>
+
+	<div id="medcont1" class="meds-container">
+		<h2>About you!</h2>
 		<form action="/users/<%=info.id%>/myprofile" method="POST">
 			<h3>Personal Info:</h3>
 			<input type="text" name="profile.firstName" placeholder="first name">
@@ -23,9 +23,10 @@
 		</form>
 	</div>
 
-		<h2>My Doctor</h2>
-		<div id="my-doc-container">
-			<form action="/users/<%=info.id%>/myprofile"> method="POST">
+		
+		<div id="medcont2" class="meds-container">
+			<h2>My Doctor</h2>
+			<form action="/users/<%=info.id%>/myprofile" method="POST">
 				<input type="text" name="firstName" placeholder="First Name">
 				<input type="text" name="lastName" placeholder="Last Name">
 				<input type="text" name="email" placeholder="email">
@@ -36,10 +37,33 @@
 			</form>
 		</div>
 
-	<h2>Account Settings</h2>
-		<h3>To delete your account: </h3>
-		<form action="/users/<%=info.id%>/myprofile" method="POST">
-			<input type="hidden" name="_method" value="DELETE">
-			<button id="delete-button">Delete My Account</button>
-		</form>
+	<div id="medcont3" class="meds-container">
+		<h2>Account Settings</h2>
+			<h3>To delete your account: </h3>
+			<form action="/users/<%=info.id%>/myprofile" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button id="delete-button">Delete My Account</button>
+			</form>
+	</div>
 
+
+	<div id="home-container">
+		<ul>
+			<%for(var i=0; i < info.length; i++){%>
+				<li><%=info[i].profile.firstName%></li>
+				<li><%=info[i].profile.lastName%></li>
+				<li><%=info[i].profile.dob%></li>
+				<li><%=info[i].profile.address.addrType%></li>
+				<li><%=info[i].profile.address.aptNum%></li>
+				<li><%=info[i].profile.address.addr1%></li>
+				<li><%=info[i].profile.address.city%></li>
+				<li><%=info[i].profile.address.state%></li>
+				<li><%=info[i].profile.address.zip%></li>
+			<%}%>
+		</ul>
+	</div>
+
+
+	<h2 id="users-name"><%=info.firstName%> Your Profile </h2>
+
+</body>

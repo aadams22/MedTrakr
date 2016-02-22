@@ -38,10 +38,6 @@ header:hover {
 	opacity: .9;
 }
 
-/*#nav-container > ul > li:hover {
-
-}*/
-
 
 /*HOME PAGE*/
 /*THE SIZE OF THIS IS BASED OFF OF THE CONTENT WITHIN*/
@@ -126,11 +122,15 @@ input:hover {
 }
 
 #medcont2 {
-	margin-left: 66%;
+	margin-left: 75%;
 }
 
 #medcont1 {
-	margin-left: 41%;
+	margin-left: 50%;
+}
+
+#medcont3 {
+	margin-left: 25%;
 }
 
 #medcont2:hover {
@@ -145,19 +145,11 @@ input:hover {
 	opacity: .9;
 }
 
-/*#profile-link {
-	margin-top: 1em;
-	margin-left: 16%;
-	width: 21%;
-	background-color: lightgrey;
-	opacity: .6;
-	border-radius: 10px;
-	padding-top: 2em;
-	padding-bottom: .8em;
-	padding-left: 1em;
-	padding-right: .2em;
-	font-size: 1.3em;
-}*/
+#medcont3:hover {
+	text-align: center;
+	height: 60%; width: 40%;
+	opacity: .9;
+}
 
 #name-palet { 
   border: 1px solid black;
@@ -179,15 +171,15 @@ input:hover {
 }
 
 #users-name {
-/*	position: fixed;
+	position: fixed;
 	border: 1px solid black;
 	padding-top: 2em;
 	width: 30%;
 	z-index: -1;
 	margin-bottom: 10%;
-	margin-top: 52%;
+	margin-top: 65%;
 	margin-left: 2%;
-	font-size: 2.5em;*/
+	font-size: 2.5em;
 }
 
 li {
