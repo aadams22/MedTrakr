@@ -27,8 +27,7 @@
 				</form>
 			</div>
 
-
-		<a id="profile-link"href="/users/<%=info.id%>/myprofile">Profile</a>
+		
 
 		<div id="home-container">
 		<h2>My Meds</h2>
@@ -40,7 +39,10 @@
 				<%}%>
 			</ul>
 		</div>
-	<h2 id="users-name">Hi <%=info.profile.firstName%></h2>
+	<div id="name-palet">
+		<h2 id="users-name">Hi <%=info.profile.firstName%></h2>
+		<a id="profile-link" href="/users/<%=info.id%>/myprofile">Profile</a>	
+	</div>
 
 
 
