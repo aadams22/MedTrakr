@@ -43,6 +43,10 @@ header:hover {
 	opacity: .9;
 }
 
+#editButton {
+	height: 38px; width: 12%;
+}
+
 
 button {
 	height: 30px; width: 71%;

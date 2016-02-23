@@ -119,7 +119,7 @@ var editMed = function(){
 	$.ajax({
 		url: window.location.pathname + '/json',
 		method: 'GET',
-		data: { meds: name }
+		data: theMed
 	}).done(someFunction);
 } //<--editMed
 
