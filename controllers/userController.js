@@ -89,16 +89,29 @@ router.post('/:id', function(req,res){
 
 //EDIT MEDS
 router.put('/:id', function(req,res){
-	console.log("this is id" + req.params.id);
-	User.findById(req.params.id, function(err,data){
+	console.log("this is id " + req.params.id);
+	console.log(req.body);
+	console.log(req.body.id);
+	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
+
+	User.update({_id: req.user.id, 'meds._id': req.body.id}, {$set:{'meds.$.dosage': req.body.dosage}}, function(){
 		res.redirect('/users/' + req.params.id);
-	})
+	});
+		
+
+	// })
 });
 
 router.get('/:id/json', function(req,res){
 	User.findById(req.params.id, function(err,data){
-		console.log(data);
 		res.send(data);
+	})
+})
+
+
+router.get('/:id/json/meds', function(req,res){
+	User.findById(req.params.id, function(err,data){
+		res.send(data.meds);
 	})
 })
 
@@ -106,16 +119,16 @@ router.get('/:id/json', function(req,res){
 //ADD INFO TO PROFILE
 router.put('/:id/profile', function(req,res){
 	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
-		res.redirect('/users/profile/' + req.params.id);
+		res.redirect('/users/' + req.params.id + '/profile');
 	})
 });
 
 router.post('/:id/myprofile', function(req,res){
 	var newDoc = new Doctor(req.body);
-	console.log("This is the newDoc: " + newDoc);
+	// console.log("This is the newDoc: " + newDoc);
 	User.findById(req.params.id, function(err,data){
 		data.doctor.push(newDoc);
-		console.log("this is data.doctor: " + data.doctor);
+		// console.log("this is data.doctor: " + data.doctor);
 		data.save(function(err,data){
 			res.redirect('/users/' + req.params.id);
 		})		
@@ -141,9 +154,6 @@ router.post('/:id/myprofile', function(req,res){
 
 module.exports = router;
 
-
-	// console.log("This is req.body: " + req.body);
-	// console.log("This is the data: " + data);
 
 
 

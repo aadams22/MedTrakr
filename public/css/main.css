@@ -2,7 +2,8 @@ html	{
 	height: 100%;
 }
 body {
-	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
+/*	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
+	*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'Lato', sans-serif;
@@ -43,6 +44,16 @@ header:hover {
 	opacity: .9;
 }
 
+#start-now {
+	padding: 1em;
+	border: 1px solid darkgrey;
+}
+
+#start-now:hover {
+	background: darkgrey;
+}
+
+
 #editButton {
 	height: 38px; width: 12%;
 }
@@ -56,6 +67,14 @@ button:hover {
 	background: darkgrey;
 }
 
+#meds-edit-form {
+	background: lightgrey;
+	opacity: .9;
+	border-radius: 10px;
+	z-index: 4;
+	text-align: center;
+	height: 100%; width: 100%;
+}
 
 /*HOME PAGE*/
 /*THE SIZE OF THIS IS BASED OFF OF THE CONTENT WITHIN*/
@@ -74,7 +93,7 @@ button:hover {
 	margin-left: 35%;
 	margin-right: 35%;
 	margin-bottom: 20%;
-	margin-top: 10%;
+	margin-top: 15%;
 	transition-property: 100%;
 	transition-duration: 1s;
 	transition-timing-function: easeInOutQuart;
@@ -160,7 +179,7 @@ td:hover {
 	padding: 1em;
 	position: fixed;
 	z-index: 2;
-	margin-left: 25%;
+	margin-left: 18%;
 }
 
 .meds-container > h3 {
@@ -187,7 +206,9 @@ td:hover {
 
 #medcont1:hover {
 	text-align: center;
+	min-width: 325px;
 	height: 60%; width: 40%;
+
 	opacity: .9;
 }
 
@@ -217,15 +238,18 @@ td:hover {
 /*USER NAME BOX*/
 
 #users-name {
-	position: fixed;
+	position: absolute;
 	border: 1px solid black;
 	padding-top: 2em;
 	width: 30%;
 	z-index: -1;
 	margin-bottom: 10%;
-	margin-top: 40%;
+/*	margin-top: 65%;*/
 	margin-left: 2%;
 	font-size: 2.5em;
+	bottom: 0;
+/*	float: bottom;*/
+/*	margin: 20%;*/
 }
 
 li {
@@ -253,10 +277,19 @@ a {
   	padding-right: 7%; 
   }
    #home-container {
-   	margin-top: 40%;
+   	margin-top: 60%;
    	margin-left: 1%;
    	margin-right: 0;
 		height: 55%; width: 89%;
+  }
+
+  .meds-container {
+  	margin-left: 1%;
+  	margin-top: 40%;
+  }
+  #medcont2 {
+  	margin-top: 40%;
+  	width: 250px;	
   }
 }
 
