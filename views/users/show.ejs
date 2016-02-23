@@ -16,12 +16,13 @@
 
 						<input id="addMed"type="submit" value="Add">
 					</form>
-				</div>
-				<div id="medcont2"class="meds-container">
-				<h3 id="editMed">Edit Meds</h3>
-				<form action="/users/<%=info.id%>" method="POST">
-					<input type="text" name="info.med.name" placeholder="Search Medication">
-					<input type="submit" value="Edit">
+			</div>
+
+			<div id="medcont2"class="meds-container">
+				<h3>Edit Meds</h3>
+				<form>
+					<input id="editMed" type="text" name="info.med.name" placeholder="Search Medication">
+					<input id="editButton"type="submit" value="Edit">
 				</form>
 			</div>
 

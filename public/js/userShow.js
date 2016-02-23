@@ -26,17 +26,17 @@ var loggedIn = function() {
 } //<---loggedIn
 
 $('.button').click(function(){
-	loggedIn();
+	// loggedIn();
 	console.log('button click works');
 });
 
-var checkLoggin = function(){
-	if(req.isAuthenticated() == true) {
-		loggedIn();
-	}
-}
-checkLoggin();
-loggedIn();
+// var checkLoggin = function(){
+// 	if(req.isAuthenticated() == true) {
+// 		loggedIn();
+// 	}
+// }
+// checkLoggin();
+// loggedIn();
 
 
 
@@ -51,7 +51,7 @@ var addMed = function() {
 
 
 $('#addMed').click(function(){
-	addMed();
+	// addMed();
 	console.log('addMed click works');
 })
 
@@ -97,7 +97,36 @@ var changeTaken = function() {
 	})
 }; //<--changeTaken
 
-changeTaken();
+// changeTaken();
+
+
+var someFunction = function(data){
+	console.log("someFunction works");
+	var theMed = $('#editMed').val();
+	for (var i = 0; i < data.meds.length; i++) {
+		console.log(theMed);
+			console.log('cool');
+		if(data.meds[i].name = theMed) {
+			console.log(theMed);
+			console.log('cool');
+		}
+	};
+}
+
+var editMed = function(){
+	var theMed = $('#editMed').val();
+	$.ajax({
+		url: window.location.pathname + '/json',
+		method: 'GET',
+		data: theMed
+	}).done(someFunction);
+} //<--editMed
+
+$('#editButton').click(function(){
+	editMed();
+	console.log('editMed click works');
+})
+
 
 
 

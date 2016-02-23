@@ -90,9 +90,7 @@ router.post('/:id', function(req,res){
 //EDIT MEDS
 router.put('/:id', function(req,res){
 	console.log("this is id" + req.params.id);
-	console.log("this is body" + req.body[0]);
-	console.log("this is body" + req.body[1]);
-	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
+	User.findById(req.params.id, function(err,data){
 		res.redirect('/users/' + req.params.id);
 	})
 });
