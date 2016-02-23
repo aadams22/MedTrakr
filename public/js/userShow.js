@@ -25,10 +25,10 @@ var loggedIn = function() {
 	}) //<---done
 } //<---loggedIn
 
-$('.button').click(function(){
-	// loggedIn();
-	console.log('button click works');
-});
+// $('.button').click(function(){
+// 	// loggedIn();
+// 	console.log('button click works');
+// });
 
 // var checkLoggin = function(){
 // 	if(req.isAuthenticated() == true) {
@@ -103,12 +103,13 @@ var changeTaken = function() {
 var someFunction = function(data){
 	console.log("someFunction works");
 	var theMed = $('#editMed').val();
+	console.log("this is data " + data);
+	console.log("this is data.meds " + data.meds);
 	for (var i = 0; i < data.meds.length; i++) {
-		console.log(theMed);
+		console.log("this is entered value" + theMed);
 			console.log('cool');
-		if(data.meds[i].name = theMed) {
-			console.log(theMed);
-			console.log('cool');
+		if(data.meds[i].name == theMed) {	
+			console.log('if statement accessed');
 		}
 	};
 }
@@ -118,11 +119,11 @@ var editMed = function(){
 	$.ajax({
 		url: window.location.pathname + '/json',
 		method: 'GET',
-		data: theMed
+		data: { meds: name }
 	}).done(someFunction);
 } //<--editMed
 
-$('#editButton').click(function(){
+$('#editButton').bind('click', function(e){
 	editMed();
 	console.log('editMed click works');
 })

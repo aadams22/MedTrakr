@@ -1,3 +1,6 @@
+html	{
+	height: 100%;
+}
 body {
 	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
 	background-size: cover;
@@ -6,7 +9,6 @@ body {
 	font-weight: 300;
 	margin: 0;
 }
-
 
 
 
@@ -42,6 +44,15 @@ header:hover {
 }
 
 
+button {
+	height: 30px; width: 61%;
+}
+
+button:hover {
+	background: darkgrey;
+}
+
+
 /*HOME PAGE*/
 /*THE SIZE OF THIS IS BASED OFF OF THE CONTENT WITHIN*/
 #home-container {
@@ -59,7 +70,7 @@ header:hover {
 	margin-left: 35%;
 	margin-right: 35%;
 	margin-bottom: 20%;
-	margin-top: 20%;
+	margin-top: 10%;
 	transition-property: 100%;
 	transition-duration: 1s;
 	transition-timing-function: easeInOutQuart;
@@ -103,9 +114,9 @@ input:hover {
 }
 
 
-.button {
+/*.button {
 	height: 12px;
-}
+}*/
 
 #home-container > ul {
 	padding: 20%;
@@ -145,6 +156,7 @@ td:hover {
 	padding: 1em;
 	position: fixed;
 	z-index: 2;
+	margin-left: 25%;
 }
 
 .meds-container > h3 {
@@ -152,21 +164,20 @@ td:hover {
 }
 
 #medcont2 {
-	margin-left: 75%;
-}
-
-#medcont1 {
 	margin-left: 50%;
+	width: 35%;
+	background: lightgrey;
+	opacity: .6;
+	border-radius: 10px;
+	padding-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 0;
+	margin-top: 1em;
 }
 
-#medcont3 {
-	margin-left: 25%;
-}
 
-#medcont2:hover {
-	text-align: center;
-	height: 60%; width: 40%;
-	opacity: .9;
+#medcont2 > input:hover {
+	background: darkgrey;
 }
 
 #medcont1:hover {
@@ -175,11 +186,7 @@ td:hover {
 	opacity: .9;
 }
 
-#medcont3:hover {
-	text-align: center;
-	height: 60%; width: 40%;
-	opacity: .9;
-}
+
 
 #name-palet { 
   border: 1px solid black;
@@ -199,6 +206,10 @@ td:hover {
 	opacity: .6;
 }
 
+
+
+
+
 #users-name {
 	position: fixed;
 	border: 1px solid black;
@@ -206,7 +217,7 @@ td:hover {
 	width: 30%;
 	z-index: -1;
 	margin-bottom: 10%;
-	margin-top: 45%;
+	margin-top: 40%;
 	margin-left: 2%;
 	font-size: 2.5em;
 }
