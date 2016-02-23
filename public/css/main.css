@@ -45,7 +45,7 @@ header:hover {
 
 
 button {
-	height: 30px; width: 61%;
+	height: 30px; width: 71%;
 }
 
 button:hover {
@@ -89,13 +89,17 @@ button:hover {
 	font-weight: 100;
 }
 
-#start-now {
+#end-session {
 	border: 1px solid grey;
 	padding: .75em;
-
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 15%;
+	margin-right: 15%;
+	opacity: .5;
 }
 
-#start-now:hover {
+#end-session:hover {
 	background-color: darkgrey;
 }
 
@@ -105,7 +109,7 @@ button:hover {
 
 input {
 	padding: 1em;
-	height: 1em; width: 50%;
+	height: 1em; width: 60%;
 }
 
 input:hover {
@@ -114,16 +118,12 @@ input:hover {
 }
 
 
-/*.button {
-	height: 12px;
-}*/
-
 #home-container > ul {
 	padding: 20%;
 }
 
 
-
+/*FOR USER SHOW PAGE ELEMENTS */
 
 table {
 	border-collapse: collapse;
@@ -186,7 +186,7 @@ td:hover {
 	opacity: .9;
 }
 
-
+/*THESE CURRENTLY ARE DISCONNECTED--ELEMENTS WERE DELETED*/
 
 #name-palet { 
   border: 1px solid black;
@@ -206,9 +206,10 @@ td:hover {
 	opacity: .6;
 }
 
+/*========================*/
 
 
-
+/*USER NAME BOX*/
 
 #users-name {
 	position: fixed;

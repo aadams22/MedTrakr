@@ -64,7 +64,7 @@ function isLoggedIn(req, res, next) {
 }
 
 // LOGOUT
-router.get('/', function(req,res){
+router.get('/logout', function(req,res){
 	req.logout();
 	res.redirect('/');
 })
