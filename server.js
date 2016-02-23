@@ -43,3 +43,12 @@ app.get('/', function(req,res){
  app.listen(port, function(){
  	console.log('How are you today dear?');
  })
+
+// pseudocode
+ // var timer = setInterval(function() {   
+ //   User.findThing()
+ //    console.log('Timer function');
+ // }, 1000);
+
+
+

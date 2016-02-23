@@ -86,12 +86,24 @@ router.post('/:id', function(req,res){
 	})
 });
 
+
 //EDIT MEDS
-router.put('/:id/', function(req,res){
+router.put('/:id', function(req,res){
+	console.log("this is id" + req.params.id);
+	console.log("this is body" + req.body[0]);
+	console.log("this is body" + req.body[1]);
 	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
 		res.redirect('/users/' + req.params.id);
 	})
 });
+
+router.get('/:id/json', function(req,res){
+	User.findById(req.params.id, function(err,data){
+		console.log(data);
+		res.send(data);
+	})
+})
+
 
 //ADD INFO TO PROFILE
 router.put('/:id/profile', function(req,res){
@@ -111,6 +123,22 @@ router.post('/:id/myprofile', function(req,res){
 		})		
 	})
 });
+
+
+// router.get('/:id/', function(req,res){
+// 	User.findById(req.params.id, function(err,data){
+// 		var currentTime = Date.now.getTime();
+// 		console.log(currentTime);
+// 		var lastTimeTaken = data.meds.takenTimes[0];
+// 		console.log(lastTimeTaken);
+// 		var frequency = data.meds.frequency.parseInt();
+// 		console.log(frequency);
+// 		if(currentTime + frequency >= data.meds.getTimestap()){
+// 			data.meds.taken = false;
+// 		}
+// 	})
+// });
+
 
 
 module.exports = router;

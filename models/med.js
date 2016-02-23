@@ -12,8 +12,9 @@ var medSchema = new Schema({
 	// prescriber: [doctorSchema],
 	refills: {type: Number},
 	taken: {type: Boolean},
-	created_at: {type: Date, default: Date.now}
-
+	created_at: {type: Date, default: Date.now},
+	frequency: {type: Number},
+	pillNum: {type: Number}
 });
 
 

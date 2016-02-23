@@ -11,18 +11,16 @@
 						<input type="text" name="dosage" placeholder="dosage">
 						<input type="text" name="directions" placeholder="directions">
 						<input type="text" name="refills" placeholder="refills">
-						<input type="submit" value="Add">
+						<input type="text" name="frequency" placeholder="How often?">
+						<input type="text" name="pillNum" placeholder="Total Pills">
+
+						<input id="addMed"type="submit" value="Add">
 					</form>
 				</div>
 				<div id="medcont2"class="meds-container">
-				<h3>Edit Meds</h3>
-					<form action="/users/<%=info.id%>" method="POST">
-						<input type="text" name="name" placeholder="Name">
-						<input type="text" name="rx" placeholder="rX Number">
-						<input type="text" name="dosage" placeholder="Dosage">
-						<input type="text" name="directions" placeholder="Directions">
-						<input type="text" name="refills" placeholder="refills">
-						<input type="hidden" name="_method" value="PUT"/>
+				<h3 id="editMed">Edit Meds</h3>
+				<form action="/users/<%=info.id%>" method="POST">
+					<input type="text" name="info.med.name" placeholder="Search Medication">
 					<input type="submit" value="Edit">
 				</form>
 			</div>
@@ -31,18 +29,25 @@
 
 		<div id="home-container">
 		<h2>My Meds</h2>
-			<ul>
+			<table>
+				<th>Medication</th>
+				<th>Dosage</th>
+				<th>Directions</th>
+				<th>Frequency</th>
 				<%for(var i=0; i < info.meds.length; i++){%>
-					<li><%=info.meds[i].name%></li>
-					<li><%=info.meds[i].dosage%></li>
-					<li><%=info.meds[i].directions%></li>
+				<tr>
+					<td><%=info.meds[i].name%></td>
+					<td><%=info.meds[i].dosage%></td>
+					<td><%=info.meds[i].directions%></td>
+					<td><%=info.meds[i].frequency%></td>
+				</tr>
 				<%}%>
-			</ul>
+			</table>
 		</div>
-	<div id="name-palet">
+
 		<h2 id="users-name">Hi <%=info.profile.firstName%></h2>
-		<a id="profile-link" href="/users/<%=info.id%>/myprofile">Profile</a>	
-	</div>
+
+
 
 
 
