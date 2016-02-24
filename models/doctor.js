@@ -3,7 +3,7 @@ var mongoose  			= require('mongoose'),
 
 
 var doctorSchema = new Schema({
-	type: {type: }
+	type: {type: String },
 	firstName: {type: String},
 	lastName: {type: String},
 	email: {type: String},
