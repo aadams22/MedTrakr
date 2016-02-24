@@ -89,9 +89,6 @@ router.post('/:id', function(req,res){
 
 //EDIT MEDS
 router.put('/:id', function(req,res){
-	console.log("this is id " + req.params.id);
-	console.log(req.body);
-	console.log(req.body.id);
 	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
 
 	User.update({_id: req.user.id, 'meds._id': req.body.id}, {$set:{'meds.$.dosage': req.body.dosage}}, function(){

@@ -3,40 +3,76 @@
 //add an ajax request to obtain all medicine with the value
 //of true and change it back to false dependent midnight.
 
-
+// localStorage.currentUser = "false";
 
 $(function() {
 
+var $loginButton = $('#login-button');
+console.log($loginButton);
+
+var $endSessionButton = $('#end-session');
+console.log($endSessionButton);
+
+$loginButton.click(function(){
+	// checkLoggin();
+	console.log("login button pressed");
+	loggedIn();
+	localStorage.currentUser = "true"; 
+	console.log(localStorage.currentUser);
+	console.log('button click works');
+});
+
+$endSessionButton.click(function(){
+	localStorage.currentUser = "false";
+});
+
+
+var determineUser = function (){
+	if(localStorage.currentUser === "true"){
+		loggedIn()
+	}
+};
+
+determineUser();
 
 //If (user  == true) is signed in run this function
 	//Append links to navbar.
 
+//=======================================================
+//APPENDS APPROPRIATE LINKS AFTER LOGIN
+//=======================================================
+// var appendToNav = function (data) {
+// 	$("<li><a href='/users/" + data.id + "/myprofile'>Profile</a></li>").appendTo('#headerList');
+// 	$("<li><a href='/users/" + data.id + "'>My Meds</a></li>").appendTo('#headerList');
+// }
 
+// var loggedIn = function() {
+// 	$.ajax(window.location.pathname + '/json').done(
+// 		function(result){
+// 		console.log(result.id);
+// 		$("<li><a href='/users/" + result.id + "/myprofile'>Profile</a></li>").appendTo('#headerList');
+// 		$("<li><a href='/users/" + result.id + "'>My Meds</a></li>").appendTo('#headerList');
+// 	}) //<---done
+// } //<---loggedIn
 
-var loggedIn = function() {
-	$.ajax({
-		url: window.location.pathname + '/json',
-		method: 'GET',
-	}).done(function(result){
-		$window.load("<li><a href='/users/<%=result.id%>/myprofile'>Profile</a></li>").appendTo('#headerList');
-		$("<li><a href='/users/<%=result.id%>'>My Meds</a></li>").appendTo('#headerList');
-
-
-	}) //<---done
-} //<---loggedIn
-
-// $('.button').click(function(){
-// 	// loggedIn();
+// $('button').click(function(){
+// 	// checkLoggin();
+// 	loggedIn();
 // 	console.log('button click works');
 // });
 
-// var checkLoggin = function(){
-// 	if(req.isAuthenticated() == true) {
-// 		loggedIn();
-// 	}
-// }
-// checkLoggin();
-// loggedIn();
+
+var checkLoggin = function(){
+	// if(req.isAuthenticated() == true) {
+		// loggedIn();
+	// }
+}
+
+
+	// loggedIn();
+
+
+
 
 
 
@@ -60,26 +96,32 @@ var loggedIn = function() {
 // 	data.meds.taken = false;
 // }
 
-var createTaken = function() {
-	$.ajax(window.location.pathname + '/json/meds').done(function(result){
-		
-	})
+// var makeTrue = function(data){
+// 		for (var i = 0; i < data.length; i++) {
+// 			if(data[i].name ==  )
+// 		}
+// } //<--makeTrue
 
-} //<--createTaken
 
-$('td').bind('click', function(e){
-	// createTaken();
+var takenData = function() {
+	$.ajax(window.location.pathname + '/json/meds').done(maketrue);
+} //<--takenData
+
+$('tr').bind('click', function(){
+	var nameOfMed = this;
+	console.log(nameOfMed);
+	// takenData();
 	console.log('addMed click works');
 	console.log(this);
+
+	var lastChild = $('last-child');
+	console.log(lastChild);
 })
 
 
 
 var changeTaken = function() {
-	$.ajax({
-		url: window.location.pathname + '/json',
-		method: 'GET',
-	}).done(function(result){
+	$.ajax(window.location.pathname + '/json/meds').done(function(result){
 		var currentTime = new Date().getTime();
 		console.log(currentTime);
 		var lastTimeTaken = result.meds.takenTimes[0];
@@ -98,9 +140,9 @@ var changeTaken = function() {
 
 
 
-//====================
+//===============================================================
 //EDIT FORM: this appends edit form after edit button is clicked.
-//====================
+//===============================================================
 
 
 
@@ -138,7 +180,6 @@ var someFunction = function(data){
 
 var editMed = function(){
 	var theMed = $('#editMed').val();
-	// console.log("this is theMed in editMed" + theMed);
 	$.ajax(window.location.pathname + '/json/meds').done(someFunction);
 } //<--editMed
 
@@ -156,10 +197,16 @@ $('#send-med-edit').click(function(){
 
 
 
-
 }); //<--end of container function
 
 
+var loggedIn = function() {
+			var pathToString = window.location.pathname.split('/');
+			console.log(pathToString);
+			console.log(pathToString[2]);
+		$("<li><a href='/users/" + pathToString[2] + "/myprofile'>Profile</a></li>").appendTo('#headerList');
+		$("<li><a href='/users/" + pathToString[2] + "'>My Meds</a></li>").appendTo('#headerList');
+} //<---loggedIn
 
 
 
