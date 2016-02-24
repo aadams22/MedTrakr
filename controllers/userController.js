@@ -26,7 +26,7 @@ router.put('/:id/json/meds/:medid', function(req,res){
 		console.log('this is req.params.medid', req.params.medid); 
 		var toggled = req.body.taken;
 		console.log('this is toggled: ', toggled);
-	User.update({_id: req.params.id, 'meds._id': req.params.medid}, {$set:{'meds.$.taken': req.body.taken}}, function(err, data){
+	User.update({_id: req.params.id, 'meds._id': req.params.medid}, {$set:{'meds.$.taken': req.body.taken}}, {$inc: {'meds.$.pillNum': -1}}, function(err, data){
 		// res.redirect('/users/' + req.params.id);
 		console.log('this is data: ', data);
 		res.send(data);
@@ -100,7 +100,6 @@ router.post('/:id', function(req,res){
 		data.meds.push(newMed);
 		console.log("this is data.meds: " + data.meds);
 		console.log("this is data.meds.taken: " + data.meds.taken);
-
 		data.save(function(err,data){
 			res.redirect('/users/' + req.params.id);
 		})		
@@ -136,7 +135,10 @@ router.get('/:id/json/meds', function(req,res){
 
 //ADD INFO TO PROFILE
 router.put('/:id/profile', function(req,res){
+	console.log("router about you has been reached.");
+	console.log('this is req.body: ', req.body);
 	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
+		console.log(data);
 		res.redirect('/users/' + req.params.id + '/profile');
 	})
 });

@@ -33,6 +33,7 @@
 				<th>Dosage</th>
 				<th>Directions</th>
 				<th>Frequency</th>
+				<th>Remaining</th>
 				<th>Taken?</th>
 				<%for(var i=0; i < info.meds.length; i++){%>
 				<tr>
@@ -40,6 +41,7 @@
 					<td><%=info.meds[i].dosage%></td>
 					<td><%=info.meds[i].directions%></td>
 					<td><%=info.meds[i].frequency%></td>
+					<td><%=info.meds[i].pillNum%></td>
 					<td><%=info.meds[i].taken%></td>
 				</tr>
 				<%}%>
