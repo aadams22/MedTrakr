@@ -73,30 +73,64 @@ determineUser();
 // 		}
 // } //<--makeTrue
 
-var someOtherFunction = function(data) {
+// var compareData = function(data) {
+// 	// console.log(firstChild);
+// 	console.log(data);
+// 	for (var i = 0; i < data.length; i++) {
+// 			console.log("this is data.name ", data[i].name);
+// 			console.log(typeof data[i].name)
+// 			// console.log("this is entered value ", theMed);
+// 				// console.log('new run');
+// 			// if(data[i].name == firstChild) {	
+// 			// 	console.log('success!');
+// 			// }
+// 		}
+// } //<--compareData
 
-}
 
 
 
-var findMedTaken = function(data, e) {
-	$.ajax(window.location.pathname + '/json/meds').done(someOtherFunction);
-} //<--takenData
-
-
-
-var takenData = function() {
-	$.ajax(window.location.pathname + '/json/meds').done(maketrue);
-} //<--takenData
+// var takenData = function(firstChild) {
+// 	var thefirstName = firstChild;
+// 	console.log(thefirstName);
+// 	$.ajax(window.location.pathname + '/json/meds').done(function(data)	{
+// 		console.log(data);
+// 		console.log(firstChild);
+// 		var firstChildX = firstChild.toString();
+// 		console.log(firstChildX);
+// 	for (var i = 0; i < data.length; i++) {
+// 			console.log("this is data.name ", data[i].name);
+// 			console.log(typeof data[i].name)
+// 			// console.log("this is entered value ", theMed);
+// 				console.log('new run');
+// 			if(data[i].name == firstChild) {	
+// 				console.log('success!');
+// 			}
+// 			}	
+// 		});
+// // } //<--takenData
 
 $('tr').click(function(e){
-	
 	// console.log('addMed click works');
 	console.log(this);
+	var firstChild = $(this).children().first();
+	// console.log(typeof firstChild);
+	console.log(firstChild);
+	var firstChildString = $(firstChild).html();
+	console.log(firstChildString);
+		$.ajax(window.location.pathname + '/json/meds').done(function(data, e)	{
+			for (var i = 0; i < data.length; i++) {
+				console.log("this is data.name ", data[i].name);
+				console.log(typeof firstChild);
+				console.log(typeof data[i].name)
+					console.log('new run');
+				if(data[i].name == firstChildString) {	
+					return console.log('success!');
+				}
+			}	
+		});
 
-	var firstChild = $(this).children().first().toString();
-	console.log(typeof firstChild);
-	takenData(e);
+
 
 })
 
