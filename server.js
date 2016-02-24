@@ -8,7 +8,9 @@ var express        = require('express'),
     port           = process.env.PORT || 3000 ,
     app            = express();
 
-mongoose.connect('mongodb://localhost/med_models');
+
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/med_models';
+mongoose.connect(mongoUri);
 
 app.use(express.static('public'));
 
