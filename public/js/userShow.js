@@ -15,6 +15,9 @@ $(function() {
 var $loginButton = $('#login-button');
 // console.log($loginButton);
 
+var $signupButton = $('#signup-button');
+// console.log($signupButton);
+
 var $endSessionButton = $('#end-session');
 // console.log($endSessionButton);
 
@@ -26,6 +29,13 @@ $loginButton.click(function(){
 	// console.log(localStorage.currentUser);
 	// console.log('button click works');
 });
+
+$signupButton.click(function(){
+	loggedIn();
+	localStorage.currentUser = "true"; 
+})
+
+
 
 $endSessionButton.click(function(){
 	localStorage.currentUser = "false";
@@ -169,6 +179,15 @@ $('#editButton').bind('click', function(e){
 	editMed();
 	console.log('editMed click works');
 })
+
+
+
+$('#profile-list').children().click(function(){
+	console.log('profile click works');
+	$(this).removeClass('list').addClass('active');
+});
+
+
 
 //===============================================================
 

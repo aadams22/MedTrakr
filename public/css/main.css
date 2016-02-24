@@ -2,8 +2,8 @@ html	{
 	height: 100%;
 }
 body {
-/*	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
-	*/
+	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
+	
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'Lato', sans-serif;
@@ -262,6 +262,36 @@ a {
 }
 
 
+
+
+#profile-list {
+	margin-left: 20%;
+}
+
+#profile-list > li > h2 {
+	padding: 3%;
+}
+
+.list {
+	margin: 1%;
+	background: lightgrey;
+	opacity: .6;
+	border-radius: 10px;
+	height: 50px; width: 20%;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.active {
+	margin-left: 10%;
+	height: 40%; width: 30%;
+	z-index: 6;
+	background: lightgrey;
+	border-radius: 10px;
+	opacity: .9;
+	padding: 10%;
+
+}
 
 /*MEDIA*/
 

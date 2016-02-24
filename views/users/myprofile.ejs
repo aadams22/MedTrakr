@@ -1,8 +1,8 @@
 <!DOCTYPE html>	
 	<% include ../partials/header.ejs %>
 	
-
-	<div id="medcont1" class="meds-container">
+	<ul id="profile-list">
+	<li class="list" id="aboutyou">
 		<h2>About you!</h2>
 		<form action="/users/<%=info.id%>/myprofile" method="POST">
 			<h3>Personal Info:</h3>
@@ -21,10 +21,10 @@
 			<input type="hidden" name="_method" value="PUT"/></br>
 			<input type="submit" value="Add">
 		</form>
-	</div>
+	</li>
 
 		
-		<div id="medcont2" class="meds-container">
+		<li class="list" id="mydoctor">
 			<h2>My Doctor</h2>
 			<form action="/users/<%=info.id%>/myprofile" method="POST">
 				<input type="text" name="firstName" placeholder="First Name">
@@ -35,17 +35,17 @@
 				<!-- <input type="hidden" name="_method" value="PUT"/> -->
 				<input type="submit" value="Add">
 			</form>
-		</div>
+		</li>
 
-	<div id="medcont3" class="meds-container">
+	<li class="list" id="settings">
 		<h2>Account Settings</h2>
 			<h3>To delete your account: </h3>
 			<form action="/users/<%=info.id%>/myprofile" method="POST">
 				<input type="hidden" name="_method" value="DELETE">
 				<button id="delete-button">Delete My Account</button>
 			</form>
-	</div>
-
+	</li>
+</ul>
 
 	<div id="home-container">
 		<ul>
@@ -67,3 +67,4 @@
 	<h2 id="users-name"><%=info.firstName%> Your Profile </h2>
 
 </body>
+</html>
