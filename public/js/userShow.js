@@ -66,6 +66,7 @@ var theAttempt = function(falseData, dataId) {
 			data: {taken : !falseData},
 		}).done(function(response) {
 			// redirect . . . . 
+			location.reload();
 			console.log('theAttemt ajax is done');
 		})
 }
