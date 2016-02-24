@@ -23,8 +23,10 @@ router.put('/:id/json/meds/:medid', function(req,res){
 		console.log('this is req.body: ', req.body);
 		console.log('this is req.body.taken: ', req.body.taken);
 		console.log('this is req.params.id: ', req.params.id);
-		console.log('this is req.params.medid', req.params.medid);
-	User.update({_id: req.params.id, 'meds._id': req.params.medid}, {$set:{'meds.taken': req.body.taken}}, function(err, data){
+		console.log('this is req.params.medid', req.params.medid); 
+		var toggled = req.body.taken;
+		console.log('this is toggled: ', toggled);
+	User.update({_id: req.params.id, 'meds._id': req.params.medid}, {$set:{'meds.$.taken': req.body.taken}}, function(err, data){
 		// res.redirect('/users/' + req.params.id);
 		console.log('this is data: ', data);
 		res.send(data);
