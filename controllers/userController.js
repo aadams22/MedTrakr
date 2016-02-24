@@ -64,7 +64,7 @@ function isLoggedIn(req, res, next) {
 }
 
 // LOGOUT
-router.get('/logout', function(req,res){
+router.get('/', function(req,res){
 	req.logout();
 	res.redirect('/');
 })
@@ -79,7 +79,9 @@ router.post('/:id', function(req,res){
 	// console.log("This is the newMed: " + newMed);
 	User.findById(req.params.id, function(err,data){
 		data.meds.push(newMed);
-		// console.log("this is data.meds: " + data.meds);
+		console.log("this is data.meds: " + data.meds);
+		console.log("this is data.meds.taken: " + data.meds.taken);
+
 		data.save(function(err,data){
 			res.redirect('/users/' + req.params.id);
 		})		

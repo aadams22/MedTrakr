@@ -8,9 +8,9 @@
 $(function() {
 
 
-//=======================================================
-//APPENDS APPROPRIATE LINKS AFTER LOGIN
-//=======================================================
+//=========================================================================
+//APPENDS APPROPRIATE LINKS AFTER LOGIN: uses a boolean in local storage.
+//=========================================================================
 
 var $loginButton = $('#login-button');
 // console.log($loginButton);
@@ -44,88 +44,42 @@ determineUser();
 
 
 
-
-
-
-// var addMed = function() {
-// 	$.ajax({
-// 		url: window.location.pathname + '/json/meds',
-// 	}).done(function(result){
-// 		$("<div><li>name</li></div>").appendTo("#home-container")
-// 	})
-// }; //<--addMed
-
-
-// $('#addMed').click(function(){
-// 	// addMed();
-// 	console.log('addMed click works');
-// })
-
-
 // //thought process. needs to be either in the controller or server.js
 // if(Date.now == (data.meds.takenTimes + data.meds.frequency)) {
 // 	data.meds.taken = false;
 // }
 
-// var makeTrue = function(data){
-// 		for (var i = 0; i < data.length; i++) {
-// 			if(data[i].name ==  )
-// 		}
-// } //<--makeTrue
 
-// var compareData = function(data) {
-// 	// console.log(firstChild);
-// 	console.log(data);
-// 	for (var i = 0; i < data.length; i++) {
-// 			console.log("this is data.name ", data[i].name);
-// 			console.log(typeof data[i].name)
-// 			// console.log("this is entered value ", theMed);
-// 				// console.log('new run');
-// 			// if(data[i].name == firstChild) {	
-// 			// 	console.log('success!');
-// 			// }
-// 		}
-// } //<--compareData
+//===============================================================
+//CLICK FOR MED TAKEN = TRUE: 
+//---------------------------
+//this is the onclick that grabs the name from the .click event and compares it
+//with the data of the meds returned from the ajax request.
+//===============================================================
 
-
-
-
-// var takenData = function(firstChild) {
-// 	var thefirstName = firstChild;
-// 	console.log(thefirstName);
-// 	$.ajax(window.location.pathname + '/json/meds').done(function(data)	{
-// 		console.log(data);
-// 		console.log(firstChild);
-// 		var firstChildX = firstChild.toString();
-// 		console.log(firstChildX);
-// 	for (var i = 0; i < data.length; i++) {
-// 			console.log("this is data.name ", data[i].name);
-// 			console.log(typeof data[i].name)
-// 			// console.log("this is entered value ", theMed);
-// 				console.log('new run');
-// 			if(data[i].name == firstChild) {	
-// 				console.log('success!');
-// 			}
-// 			}	
-// 		});
-// // } //<--takenData
 
 $('tr').click(function(e){
 	// console.log('addMed click works');
-	console.log(this);
 	var firstChild = $(this).children().first();
-	// console.log(typeof firstChild);
-	console.log(firstChild);
 	var firstChildString = $(firstChild).html();
-	console.log(firstChildString);
+	// console.log(firstChildString);
 		$.ajax(window.location.pathname + '/json/meds').done(function(data, e)	{
 			for (var i = 0; i < data.length; i++) {
 				console.log("this is data.name ", data[i].name);
-				console.log(typeof firstChild);
-				console.log(typeof data[i].name)
+				// console.log(typeof firstChild);
+				// console.log(typeof data[i].name)
 					console.log('new run');
 				if(data[i].name == firstChildString) {	
-					return console.log('success!');
+					console.log('success! ', data[i].taken);
+					// return data[i].taken = true;
+					var falseData = data[i]; 
+					console.log(falseData);
+					return $.ajax({
+						url: window.location.pathname + '/json/meds',
+						method: 'PUT',
+						data: {'taken': 'true'}
+					})
+
 				}
 			}	
 		});
@@ -224,5 +178,43 @@ var loggedIn = function() {
 		$("<li><a href='/users/" + pathToString[2] + "'>My Meds</a></li>").appendTo('#headerList');
 } //<---loggedIn
 
+
+
+
+
+//===============================================================
+//===============================================================
+//OLD CODE
+//===============================================================
+//===============================================================
+
+
+//SCRIPT THAT SETS ALL UNDEFINED BOOLEANS IN MEDS TO FALSE:
+
+
+
+// var allFalse = function(takenData){
+// 	$.ajax({
+// 		url: window.location.pathname + '/json/meds',
+// 		method: 'POST',
+// 		data: takenData,
+// 	})
+// } //<--allFalse
+
+// var checkUndefined = function(data){
+// 	console.log(data.taken);
+// 	for (var i = 0; i < data.length; i++) {
+// 		if(data[i].taken == undefined) {
+// 			var takenData = data[i].taken;
+// 			console.log(takenData);
+// 			// allFalse(takenData);
+// 		}
+// 	};
+
+// } //<--checkUndefined
+
+// var ajaxAllFalse = function() {
+// 	$.ajax(window.location.pathname + '/json/meds').done(checkUndefined);
+// } //<--ajaxAllFalse
 
 
