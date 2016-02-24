@@ -7,19 +7,24 @@
 
 $(function() {
 
+
+//=======================================================
+//APPENDS APPROPRIATE LINKS AFTER LOGIN
+//=======================================================
+
 var $loginButton = $('#login-button');
-console.log($loginButton);
+// console.log($loginButton);
 
 var $endSessionButton = $('#end-session');
-console.log($endSessionButton);
+// console.log($endSessionButton);
 
 $loginButton.click(function(){
 	// checkLoggin();
-	console.log("login button pressed");
+	// console.log("login button pressed");
 	loggedIn();
 	localStorage.currentUser = "true"; 
-	console.log(localStorage.currentUser);
-	console.log('button click works');
+	// console.log(localStorage.currentUser);
+	// console.log('button click works');
 });
 
 $endSessionButton.click(function(){
@@ -35,41 +40,7 @@ var determineUser = function (){
 
 determineUser();
 
-//If (user  == true) is signed in run this function
-	//Append links to navbar.
 
-//=======================================================
-//APPENDS APPROPRIATE LINKS AFTER LOGIN
-//=======================================================
-// var appendToNav = function (data) {
-// 	$("<li><a href='/users/" + data.id + "/myprofile'>Profile</a></li>").appendTo('#headerList');
-// 	$("<li><a href='/users/" + data.id + "'>My Meds</a></li>").appendTo('#headerList');
-// }
-
-// var loggedIn = function() {
-// 	$.ajax(window.location.pathname + '/json').done(
-// 		function(result){
-// 		console.log(result.id);
-// 		$("<li><a href='/users/" + result.id + "/myprofile'>Profile</a></li>").appendTo('#headerList');
-// 		$("<li><a href='/users/" + result.id + "'>My Meds</a></li>").appendTo('#headerList');
-// 	}) //<---done
-// } //<---loggedIn
-
-// $('button').click(function(){
-// 	// checkLoggin();
-// 	loggedIn();
-// 	console.log('button click works');
-// });
-
-
-var checkLoggin = function(){
-	// if(req.isAuthenticated() == true) {
-		// loggedIn();
-	// }
-}
-
-
-	// loggedIn();
 
 
 
@@ -102,21 +73,33 @@ var checkLoggin = function(){
 // 		}
 // } //<--makeTrue
 
+var someOtherFunction = function(data) {
+
+}
+
+
+
+var findMedTaken = function(data, e) {
+	$.ajax(window.location.pathname + '/json/meds').done(someOtherFunction);
+} //<--takenData
+
+
 
 var takenData = function() {
 	$.ajax(window.location.pathname + '/json/meds').done(maketrue);
 } //<--takenData
 
-$('tr').bind('click', function(){
-	var nameOfMed = this;
-	console.log(nameOfMed);
-	// takenData();
-	console.log('addMed click works');
+$('tr').click(function(e){
+	
+	// console.log('addMed click works');
 	console.log(this);
 
-	var lastChild = $('last-child');
-	console.log(lastChild);
+	var firstChild = $(this).children().first().toString();
+	console.log(typeof firstChild);
+	takenData(e);
+
 })
+
 
 
 
@@ -188,22 +171,21 @@ $('#editButton').bind('click', function(e){
 	console.log('editMed click works');
 })
 
-
-//click event to remove edit form
-
-$('#send-med-edit').click(function(){
-
-});
-
-
+//===============================================================
 
 }); //<--end of container function
 
 
+
+
+
+//APPENDING OF LINKS OT NAVBAR CONT.
+
+
 var loggedIn = function() {
 			var pathToString = window.location.pathname.split('/');
-			console.log(pathToString);
-			console.log(pathToString[2]);
+			// console.log(pathToString);
+			// console.log(pathToString[2]);
 		$("<li><a href='/users/" + pathToString[2] + "/myprofile'>Profile</a></li>").appendTo('#headerList');
 		$("<li><a href='/users/" + pathToString[2] + "'>My Meds</a></li>").appendTo('#headerList');
 } //<---loggedIn
