@@ -57,6 +57,20 @@ determineUser();
 //with the data of the meds returned from the ajax request.
 //===============================================================
 
+var theAttempt = function(falseData, dataId) {
+	console.log('theAttempt is being run');
+	console.log('this is falseData: ', falseData);
+		$.ajax({
+			url: window.location.pathname + '/json/meds/' + dataId,
+			method: 'PUT',
+			data: {taken : !falseData},
+		}).done(function(response) {
+			// redirect . . . . 
+			console.log('theAttemt ajax is done');
+		})
+}
+
+
 
 $('tr').click(function(e){
 	// console.log('addMed click works');
@@ -72,21 +86,17 @@ $('tr').click(function(e){
 				if(data[i].name == firstChildString) {	
 					console.log('success! ', data[i].taken);
 					// return data[i].taken = true;
-					var falseData = data[i]; 
-					console.log(falseData);
-					return $.ajax({
-						url: window.location.pathname + '/json/meds',
-						method: 'PUT',
-						data: {'taken': 'true'}
-					})
+					var falseData = data[i].taken; 
+					var dataName = data[i];
+					var dataId = data[i]._id;
+					console.log('this is dataId: ', dataId)
+					console.log('this is falseData: ',falseData);
+					return theAttempt(falseData, dataId);
+				} //<-- if statement
+			}	//<--for loop
+		}); //<--ajax request
 
-				}
-			}	
-		});
-
-
-
-})
+}) //<-- <tr> click
 
 
 
