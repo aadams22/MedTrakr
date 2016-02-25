@@ -4,7 +4,7 @@
 	<ul id="profile-list">
 	<li class="list" id="aboutyou">
 		<h2>About you!</h2>
-		<form action="/users/<%=info.id%>/myprofile" method="POST">
+		<form action="/users/<%=id%>/myprofile" method="POST">
 			<h3>Personal Info:</h3>
 			<input type="text" name="profile.firstName" placeholder="first name">
 			<input type="text" name="profile.lastName" placeholder="last name">
@@ -26,7 +26,7 @@
 		
 		<li class="list" id="mydoctor">
 			<h2>My Doctor</h2>
-			<form action="/users/<%=info.id%>/myprofile" method="POST">
+			<form action="/users/<%=id%>/myprofile" method="POST">
 				<input type="text" name="firstName" placeholder="First Name">
 				<input type="text" name="lastName" placeholder="Last Name">
 				<input type="text" name="email" placeholder="email">
