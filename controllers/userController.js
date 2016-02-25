@@ -27,7 +27,6 @@ router.put('/:id/json/meds/:medid', function(req,res){
 		var toggled = req.body.taken;
 		console.log('this is toggled: ', toggled);
 	User.update({_id: req.params.id, 'meds._id': req.params.medid}, {$set:{'meds.$.taken': req.body.taken}}, {$inc: {'meds.$.pillNum': -1}}, function(err, data){
-		// res.redirect('/users/' + req.params.id);
 		console.log('this is data: ', data);
 		res.send(data);
 	});
@@ -134,7 +133,7 @@ router.get('/:id/json/meds', function(req,res){
 
 
 //ADD INFO TO PROFILE
-router.put('/:id/profile', function(req,res){
+router.put('/:id/myprofile', function(req,res){
 	console.log("router about you has been reached.");
 	console.log('this is req.body: ', req.body);
 	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
