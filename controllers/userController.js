@@ -106,17 +106,16 @@ router.post('/:id', function(req,res){
 //EDIT MEDS
 router.put('/:id', function(req,res){
 	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
-	console.log(req.body);
 	User.update({_id: req.user.id, 'meds._id': req.body.id}, 
-		{$set:{'meds.$.dosage': req.body.dosage}}, 
-		// {$set:{'meds.$.name': req.body.name}}, 
-		// {$set:{'meds.$.pillNum': req.body.pillNum}}, 
-		// {$set:{'meds.$.rx': req.body.rx}},
-		// {$set:{'meds.$.refills': req.body.refills}},
-		// {$set:{'meds.$.taken': req.body.taken}},
-		// {$set:{'meds.$.frequency': req.body.frequency}},
-		// {$set:{'meds.$.directions': req.body.directions}},
-		function(){
+		{$set:{'meds.$.dosage': req.body.dosage}},
+		{$set:{'meds.$.name': req.body.name}}, 
+		{$set:{'meds.$.pillNum': req.body.pillNum}}, 
+		{$set:{'meds.$.rx': req.body.rx}},
+		{$set:{'meds.$.refills': req.body.refills}},
+		{$set:{'meds.$.taken': req.body.taken}},
+		{$set:{'meds.$.frequency': req.body.frequency}},
+		{$set:{'meds.$.directions': req.body.directions}},
+		function(err,data){
 		res.redirect('/users/' + req.params.id);
 	});
 		
