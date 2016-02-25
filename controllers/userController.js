@@ -116,8 +116,8 @@ router.put('/:id', function(req,res){
 		'meds.$.frequency': req.body.frequency,
 		'meds.$.directions': req.body.directions,
 		'meds.$.dosage': req.body.dosage}}, 
-		
-		function(){
+
+		function(err,data){
 		res.redirect('/users/' + req.params.id);
 	});
 		
