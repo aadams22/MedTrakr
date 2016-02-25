@@ -68,8 +68,8 @@ determineUser();
 //===============================================================
 
 var theAttempt = function(falseData, dataId) {
-	console.log('theAttempt is being run');
-	console.log('this is falseData: ', falseData);
+	// console.log('theAttempt is being run');
+	// console.log('this is falseData: ', falseData);
 		$.ajax({
 			url: window.location.pathname + '/json/meds/' + dataId,
 			method: 'PUT',
@@ -77,7 +77,7 @@ var theAttempt = function(falseData, dataId) {
 		}).done(function(response) {
 			// redirect . . . . 
 			location.reload();
-			console.log('theAttemt ajax is done');
+			// console.log('theAttemt ajax is done');
 		})
 }
 
@@ -90,18 +90,18 @@ $('tr').click(function(e){
 	// console.log(firstChildString);
 		$.ajax(window.location.pathname + '/json/meds').done(function(data, e)	{
 			for (var i = 0; i < data.length; i++) {
-				console.log("this is data.name ", data[i].name);
+				// console.log("this is data.name ", data[i].name);
 				// console.log(typeof firstChild);
 				// console.log(typeof data[i].name)
-					console.log('new run');
+					// console.log('new run');
 				if(data[i].name == firstChildString) {	
-					console.log('success! ', data[i].taken);
+					// console.log('success! ', data[i].taken);
 					// return data[i].taken = true;
 					var falseData = data[i].taken; 
 					var dataName = data[i];
 					var dataId = data[i]._id;
-					console.log('this is dataId: ', dataId)
-					console.log('this is falseData: ',falseData);
+					// console.log('this is dataId: ', dataId)
+					// console.log('this is falseData: ',falseData);
 					return theAttempt(falseData, dataId);
 				} //<-- if statement
 			}	//<--for loop
@@ -115,11 +115,11 @@ $('tr').click(function(e){
 var changeTaken = function() {
 	$.ajax(window.location.pathname + '/json/meds').done(function(result){
 		var currentTime = new Date().getTime();
-		console.log(currentTime);
+		// console.log(currentTime);
 		var lastTimeTaken = result.meds.takenTimes[0];
-		console.log(lastTimeTaken);
+		// console.log(lastTimeTaken);
 		var frequency = result.meds.frequency;
-		console.log(frequency);
+		// console.log(frequency);
 
 		if(currentTime + (frequency * 10000) >= lastTimeTaken){
 			result.meds.taken = false;
@@ -146,12 +146,12 @@ var someFunction = function(data){
 	// console.log("this is pathToString ", pathToString);
 	// console.log("this is pathToString2 ", pathToString[2]);
 	for (var i = 0; i < data.length; i++) {
-		console.log("this is data.name ", data[i].name);
-		console.log(typeof data[i].name)
+		// console.log("this is data.name ", data[i].name);
+		// console.log(typeof data[i].name)
 		// console.log("this is entered value ", theMed);
 			// console.log('new run');
 		if(data[i].name == theMed) {	
-			console.log('success!');
+
 			var form = $("<div id='meds-edit-form'><form id='theForm' action='/users/" + pathToString[2] + "' method='POST'></form></div>");
 			$('body').append(form);
 			
@@ -168,25 +168,26 @@ var someFunction = function(data){
 					"<button id='send-med-edit' type='submit'>Edit</button>").appendTo("#theForm");
 		}
 	};
-}
+};
 
 var editMed = function(){
 	var theMed = $('#editMed').val();
 	$.ajax(window.location.pathname + '/json/meds').done(someFunction);
-} //<--editMed
+}; //<--editMed
 
 $('#editButton').bind('click', function(e){
 	editMed();
-	console.log('editMed click works');
-})
-
-
-
-$('#profile-list').children().click(function(){
-	console.log('profile click works');
-	$(this).removeClass('list').addClass('active');
+	// console.log('editMed click works');
 });
 
+
+//===============================================================
+//APPENDS EDIT PROFILE AND ADD DOCTOR ON /myprofile: adds new class name
+
+$('#profile-list').children().click(function(){
+	// console.log('profile click works');
+	$(this).removeClass('list').addClass('active');
+});
 
 
 //===============================================================
