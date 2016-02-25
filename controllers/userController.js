@@ -107,8 +107,10 @@ router.post('/:id', function(req,res){
 
 //EDIT MEDS
 router.put('/:id', function(req,res){
-	Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
-		User.update({id: req.params.id, 'meds._id': req.body.id}, 
+	console.log(req.body);
+	console.log(req.params.id);
+	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
+		User.update({_id: req.params.id, 'meds._id': req.body.id}, 
 
 			{$set:{'meds.$.name': req.body.name, 
 			'meds.$.pillNum': req.body.pillNum, 
@@ -123,7 +125,7 @@ router.put('/:id', function(req,res){
 			res.redirect('/users/' + req.params.id);
 		});
 		
-	});
+	// });
 });
 
 //USER JSON ROUTE
@@ -145,9 +147,9 @@ router.get('/:id/json/meds', function(req,res){
 router.put('/:id/myprofile', function(req,res){
 	// console.log("router about you has been reached.");
 	// console.log('this is req.body: ', req.body);
-	User.findByIdAndUpdate(req.user.id, req.body, function(err,data){
+	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
 		console.log(data);
-		res.redirect('/users/' + req.user.id + '/profile');
+		res.redirect('/users/' + req.params.id + '/profile');
 	})
 });
 
