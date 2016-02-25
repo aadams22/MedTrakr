@@ -27,14 +27,11 @@ router.put('/:id/json/meds/:medid', function(req,res){
 		var toggled = req.body.taken;
 		// console.log('this is toggled: ', toggled);
 	User.update({_id: req.params.id, 'meds._id': req.params.medid}, 
-		{$set:{'meds.$.taken': req.body.taken}}, function(err, data){
+		{$set:{'meds.$.taken': req.body.taken}}, {$inc: {'meds.$.pillNum': -1}}, function(err, data){
 		res.send(data);
 	});
-	User.update({_id: req.params.id, 'meds._id': req.params.medid}, 
-		{$inc: {'meds.$.pillNum': -1}}, function(err, data){
 
-		res.send(data);
-	});
+		
 })
 
 
