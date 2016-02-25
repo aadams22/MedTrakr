@@ -107,9 +107,9 @@ router.post('/:id', function(req,res){
 
 //EDIT MEDS
 router.put('/:id', function(req,res){
-	console.log(req.body);
-	console.log(req.params.id);
-	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
+	// console.log(req.body);
+	// console.log(req.params.id);
+	
 		User.update({_id: req.params.id, 'meds._id': req.body.id}, 
 
 			{$set:{'meds.$.name': req.body.name, 
@@ -125,7 +125,7 @@ router.put('/:id', function(req,res){
 			res.redirect('/users/' + req.params.id);
 		});
 		
-	// });
+
 });
 
 //USER JSON ROUTE
