@@ -17,21 +17,26 @@ router.get('/', function(req,res){
 
 //USER MED TOGGLE BASED ON CLICK: data taken from ajax calls within js/userShow.js
 router.put('/:id/json/meds/:medid', function(req,res){
-	// User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
 	// 	console.log('you this boolean worked.')
 	// 	res.redirect('/users/' + req.params.id);
-		console.log('this boolean worked.');
-		console.log('this is req.body: ', req.body);
-		console.log('this is req.body.taken: ', req.body.taken);
-		console.log('this is req.params.id: ', req.params.id);
-		console.log('this is req.params.medid', req.params.medid); 
+		// console.log('this boolean worked.');
+		// console.log('this is req.body: ', req.body);
+		// console.log('this is req.body.taken: ', req.body.taken);
+		// console.log('this is req.params.id: ', req.params.id);
+		// console.log('this is req.params.medid', req.params.medid); 
 		var toggled = req.body.taken;
-		console.log('this is toggled: ', toggled);
-	User.update({_id: req.params.id, 'meds._id': req.params.medid}, {$set:{'meds.$.taken': req.body.taken}}, {$inc: {'meds.$.pillNum': -1}}, function(err, data){
-		console.log('this is data: ', data);
+		// console.log('this is toggled: ', toggled);
+	User.update({_id: req.params.id, 'meds._id': req.params.medid}, 
+		{$set:{'meds.$.taken': req.body.taken}}, function(err, data){
+		res.send(data);
+	});
+	User.update({_id: req.params.id, 'meds._id': req.params.medid}, 
+		{$inc: {'meds.$.pillNum': -1}}, function(err, data){
+
 		res.send(data);
 	});
 })
+
 
 
 //USER SHOW
