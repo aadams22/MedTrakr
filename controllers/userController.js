@@ -15,6 +15,7 @@ router.get('/', function(req,res){
 		})
 })
 
+//USER MED TOGGLE BASED ON CLICK: data taken from ajax calls within js/userShow.js
 router.put('/:id/json/meds/:medid', function(req,res){
 	// User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
 	// 	console.log('you this boolean worked.')
@@ -30,12 +31,10 @@ router.put('/:id/json/meds/:medid', function(req,res){
 		console.log('this is data: ', data);
 		res.send(data);
 	});
-
-
 })
 
 
-//SHOW
+//USER SHOW
 router.get('/:id', isLoggedIn, function(req,res){
 	req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
 	User.findById(req.params.id, function(err,data){
@@ -43,7 +42,7 @@ router.get('/:id', isLoggedIn, function(req,res){
 	})
 })
 
-//PROFILE
+//MY PROFILE
 router.get('/:id/myprofile', function(req,res){
 	res.locals.login = req.isAuthenticated();
 	User.find({}, function(err,data){
@@ -52,7 +51,7 @@ router.get('/:id/myprofile', function(req,res){
 })
 
 
-//DELETE
+//DELETE USER
 router.delete('/:id/myprofile', function(req,res){
 	User.findByIdAndRemove(req.params.id, function(err, data){
 		res.redirect('/users/');
@@ -90,8 +89,6 @@ router.get('/', function(req,res){
 
 //===================================================
 //ADD MEDS
-//!!!CURRENT ISSUE: need a different route 
-//for adding doctor or else it will push into meds and won't work 
 router.post('/:id', function(req,res){
 	var newMed = new Med(req.body);
 	// console.log("This is the newMed: " + newMed);
@@ -113,7 +110,7 @@ router.put('/:id', function(req,res){
 	User.update({_id: req.user.id, 'meds._id': req.body.id}, 
 		{$set:{'meds.$.dosage': req.body.dosage}}, 
 		{$set:{'meds.$.name': req.body.name}}, 
-		{$set:{'meds.$.pillNum	': req.body.pillNum}}, 
+		{$set:{'meds.$.pillNum': req.body.pillNum}}, 
 		{$set:{'meds.$.rx': req.body.rx}},
 		{$set:{'meds.$.refills': req.body.refills}},
 		{$set:{'meds.$.taken': req.body.taken}},
@@ -127,13 +124,14 @@ router.put('/:id', function(req,res){
 	// })
 });
 
+//USER JSON ROUTE
 router.get('/:id/json', function(req,res){
 	User.findById(req.params.id, function(err,data){
 		res.send(data);
 	})
 })
 
-
+//MEDS JSON ROUTE
 router.get('/:id/json/meds', function(req,res){
 	User.findById(req.params.id, function(err,data){
 		res.send(data.meds);
@@ -151,6 +149,7 @@ router.put('/:id/myprofile', function(req,res){
 	})
 });
 
+//CREATES NEW DOCTOR
 router.post('/:id/myprofile', function(req,res){
 	var newDoc = new Doctor(req.body);
 	// console.log("This is the newDoc: " + newDoc);
