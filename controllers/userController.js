@@ -48,7 +48,7 @@ router.get('/:id', isLoggedIn, function(req,res){
 router.get('/:id/myprofile', function(req,res){
 	res.locals.login = req.isAuthenticated();
 	User.find({}, function(err,data){
-		res.render('users/myprofile.ejs', {data})
+		res.render('users/myprofile.ejs', data)
 	})
 })
 
