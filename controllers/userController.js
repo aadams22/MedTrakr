@@ -36,7 +36,7 @@ router.put('/:id/json/meds/:medid', function(req,res){
 
 
 
-//USER SHOW
+//RENDER USER SHOW
 router.get('/:id', isLoggedIn, function(req,res){
 	req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
 	User.findById(req.params.id, function(err,data){
@@ -44,7 +44,7 @@ router.get('/:id', isLoggedIn, function(req,res){
 	})
 })
 
-//MY PROFILE
+//RENDER MY PROFILE
 router.get('/:id/myprofile', function(req,res){
 	res.locals.login = req.isAuthenticated();
 	User.find({}, function(err,data){
@@ -96,8 +96,8 @@ router.post('/:id', function(req,res){
 	// console.log("This is the newMed: " + newMed);
 	User.findById(req.params.id, function(err,data){
 		data.meds.push(newMed);
-		console.log("this is data.meds: " + data.meds);
-		console.log("this is data.meds.taken: " + data.meds.taken);
+		// console.log("this is data.meds: " + data.meds);
+		// console.log("this is data.meds.taken: " + data.meds.taken);
 		data.save(function(err,data){
 			res.redirect('/users/' + req.params.id);
 		})		
@@ -107,7 +107,7 @@ router.post('/:id', function(req,res){
 
 //EDIT MEDS
 router.put('/:id', function(req,res){
-	Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
+	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
 	User.update({id: req.params.id, 'meds._id': req.body.id}, 
 
 		{$set:{'meds.$.name': req.body.name, 
@@ -123,7 +123,7 @@ router.put('/:id', function(req,res){
 		res.redirect('/users/' + req.params.id);
 	});
 		
-	});
+	// });
 });
 
 //USER JSON ROUTE
