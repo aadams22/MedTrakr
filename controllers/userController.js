@@ -48,7 +48,7 @@ router.get('/:id', isLoggedIn, function(req,res){
 router.get('/:id/myprofile', function(req,res){
 	res.locals.login = req.isAuthenticated();
 	User.find({}, function(err,data){
-		res.render('users/myprofile.ejs', {info: data})
+		res.render('users/myprofile.ejs', {naems: data})
 	})
 })
 
@@ -145,8 +145,8 @@ router.get('/:id/json/meds', function(req,res){
 
 //ADD INFO TO PROFILE
 router.put('/:id/myprofile', function(req,res){
-	// console.log("router about you has been reached.");
-	// console.log('this is req.body: ', req.body);
+	console.log("router about you has been reached.");
+	console.log('this is req.body: ', req.body);
 	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
 		console.log(data);
 		res.redirect('/users/' + req.params.id + '/profile');
