@@ -148,7 +148,7 @@ input:hover {
 	padding: 20%;
 }
 
-
+/*================================*/
 /*FOR USER SHOW PAGE ELEMENTS */
 
 table {
@@ -220,6 +220,7 @@ td:hover {
 	opacity: .9;
 }
 
+/*================================*/
 /*THESE CURRENTLY ARE DISCONNECTED--ELEMENTS WERE DELETED*/
 
 #name-palet { 
@@ -332,6 +333,13 @@ a {
   	margin-top: 40%;
   	width: 250px;	
   }
+  #profile-list {
+  	margin-top: 30%;
+  }
+  #users-name {
+  	width: 80%;
+  }
+
 }
 
 

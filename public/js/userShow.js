@@ -166,6 +166,7 @@ var someFunction = function(data){
 					"<input type='hidden' name='id' value='" + data[i]._id + "'>" +
 					"<input type='hidden' name='_method' value='PUT'/>" +
 					"<button id='send-med-edit' type='submit'>Edit</button>").appendTo("#theForm");
+		
 		}
 	};
 };

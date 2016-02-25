@@ -2,7 +2,7 @@
 MedTrakr
 ---------------
 
-This webapp allows individuals to track their medication in a private manner.
+This webapp allows individuals to track their medication in a private manner. Currently deployed using Heroku deployment. 
 
 Capabilities: 
 	--User Login/Logout

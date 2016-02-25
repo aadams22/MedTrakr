@@ -107,23 +107,23 @@ router.post('/:id', function(req,res){
 
 //EDIT MEDS
 router.put('/:id', function(req,res){
-	// Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
-	User.update({id: req.params.id, 'meds._id': req.body.id}, 
+	Med.findByIdAndUpdate(req.body.id, req.body, function(err,data){
+		User.update({id: req.params.id, 'meds._id': req.body.id}, 
 
-		{$set:{'meds.$.name': req.body.name, 
-		'meds.$.pillNum': req.body.pillNum, 
-		'meds.$.rx': req.body.rx,
-		'meds.$.refills': req.body.refills,
-		'meds.$.taken': req.body.taken,
-		'meds.$.frequency': req.body.frequency,
-		'meds.$.directions': req.body.directions,
-		'meds.$.dosage': req.body.dosage}}, 
+			{$set:{'meds.$.name': req.body.name, 
+			'meds.$.pillNum': req.body.pillNum, 
+			'meds.$.rx': req.body.rx,
+			'meds.$.refills': req.body.refills,
+			'meds.$.taken': req.body.taken,
+			'meds.$.frequency': req.body.frequency,
+			'meds.$.directions': req.body.directions,
+			'meds.$.dosage': req.body.dosage}}, 
 
-		function(err,data){
-		res.redirect('/users/' + req.params.id);
-	});
+			function(err,data){
+			res.redirect('/users/' + req.params.id);
+		});
 		
-	// });
+	});
 });
 
 //USER JSON ROUTE
