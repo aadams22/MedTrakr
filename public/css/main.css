@@ -324,7 +324,6 @@ a {
    	margin-right: 0;
 		height: 55%; width: 89%;
   }
-
   .meds-container {
   	margin-left: 1%;
   	margin-top: 40%;
@@ -337,7 +336,10 @@ a {
   	margin-top: 30%;
   }
   #users-name {
-  	width: 80%;
+  	width: 95%;
+  }
+  table {
+  	height: 55%; width: 89%;
   }
 
 }

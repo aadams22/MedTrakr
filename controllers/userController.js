@@ -145,9 +145,9 @@ router.get('/:id/json/meds', function(req,res){
 router.put('/:id/myprofile', function(req,res){
 	// console.log("router about you has been reached.");
 	// console.log('this is req.body: ', req.body);
-	User.findByIdAndUpdate(req.params.id, req.body, function(err,data){
-		// console.log(data);
-		res.redirect('/users/' + req.params.id + '/profile');
+	User.findByIdAndUpdate(req.user.id, req.body, function(err,data){
+		console.log(data);
+		res.redirect('/users/' + req.user.id + '/profile');
 	})
 });
 
