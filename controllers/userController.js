@@ -121,7 +121,7 @@ router.post('/:id', function(req,res){
 		
 
 	// })
-});
+// });
 
 //USER JSON ROUTE
 router.get('/:id/json', function(req,res){
