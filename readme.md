@@ -30,8 +30,10 @@ This webapp allows individuals to track their medication in a private manner. Cu
 
 ##Future Implimentations:
 	-The true/false toggle on medication should be switched
-		changed to false based on the frequency at which one must take the specified medication So that the user can switch it to true. The code has been written, but it is yet to be tested.
+		changed to false based on the frequency at which one must take the specified medication So that the user can switch it to true. The code has been written, but it is yet to be tested
+	-User access to a storage of current meds and past medications
+	-Calandar for tracking medication use
+	-Refactor using Angular
 
-	-User access to a storage of current meds and past medications.
-
-	-Calandar for tracking medication use.
+##Author:
+Ashleigh Adams
