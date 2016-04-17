@@ -46,7 +46,6 @@ router.get('/:id', isLoggedIn, function(req,res){
 
 //RENDER MY PROFILE
 router.get('/:id/myprofile', function(req,res){
-	console.log('using proper router');
 	// res.locals.login = req.isAuthenticated();
 	User.findById(req.params.id, function(err,data){
 		res.render('users/myprofile.ejs', {info: data});
@@ -155,7 +154,7 @@ router.put('/:id/myprofile', function(req,res){
 		console.log(data);
 		res.redirect('/users/' + req.params.id + '/myprofile');
 	})
-});
+});v
 
 //CREATES NEW DOCTOR
 router.post('/:id/myprofile', function(req,res){

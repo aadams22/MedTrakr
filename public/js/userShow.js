@@ -67,15 +67,16 @@ determineUser();
 //with the data of the meds returned from the ajax request.
 //===============================================================
 
-var theAttempt = function(falseData, dataId) {
+var theAttempt = function(trueOrFalseData, dataId) {
 	// console.log('theAttempt is being run');
 	// console.log('this is falseData: ', falseData);
 		$.ajax({
 			url: window.location.pathname + '/json/meds/' + dataId,
 			method: 'PUT',
-			data: {taken : !falseData},
+			data: {taken : !trueOrFalseData},
 		}).done(function(response) {
-			// redirect . . . . 
+			// redirect . . . . //location.reload is choppy and takes too long. 
+			//find a better method.
 			location.reload();
 			// console.log('theAttemt ajax is done');
 		})
@@ -88,7 +89,8 @@ $('tr').click(function(e){
 	var firstChild = $(this).children().first();
 	var firstChildString = $(firstChild).html();
 	// console.log(firstChildString);
-		$.ajax(window.location.pathname + '/json/meds').done(function(data, e)	{
+		$.ajax(window.location.pathname + '/json/meds')
+		.done(function(data, e)	{
 			for (var i = 0; i < data.length; i++) {
 				// console.log("this is data.name ", data[i].name);
 				// console.log(typeof firstChild);
@@ -97,12 +99,11 @@ $('tr').click(function(e){
 				if(data[i].name == firstChildString) {	
 					// console.log('success! ', data[i].taken);
 					// return data[i].taken = true;
-					var falseData = data[i].taken; 
-					var dataName = data[i];
+					var trueOrFalseData = data[i].taken; 
 					var dataId = data[i]._id;
 					// console.log('this is dataId: ', dataId)
 					// console.log('this is falseData: ',falseData);
-					return theAttempt(falseData, dataId);
+					return theAttempt(trueOrFalseData, dataId);
 				} //<-- if statement
 			}	//<--for loop
 		}); //<--ajax request
@@ -112,8 +113,9 @@ $('tr').click(function(e){
 
 
 
-var changeTaken = function() {
-	$.ajax(window.location.pathname + '/json/meds').done(function(result){
+var changeTakenValue = function() {
+	$.ajax(window.location.pathname + '/json/meds')
+	.done(function(result){
 		var currentTime = new Date().getTime();
 		// console.log(currentTime);
 		var lastTimeTaken = result.meds.takenTimes[0];
