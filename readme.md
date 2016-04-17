@@ -4,7 +4,7 @@
 ##Description
 This webapp allows individuals to track their medication in a private manner. Currently deployed using Heroku deployment.
 
-##Capabilities:
+##Capabilities
 	* User Login/Logout
 	* User Profile
 			* Your Doctor Information
@@ -14,7 +14,7 @@ This webapp allows individuals to track their medication in a private manner. Cu
 	* Track if you have taken the medications or not.
 
 
-##Technologies Used:
+##Technologies Used
 	* HTML
 	* CSS
 	* Javascript
@@ -23,17 +23,17 @@ This webapp allows individuals to track their medication in a private manner. Cu
 	* Mongoose
 
 
-##Unsolved Problems:
+##Unsolved Problems
 	Currently one cannot access other pages from show page once logged in. Looking to find another way to capture that data for the appending of the links after login.
 
 
 
-##Future Implimentations:
+##Future Implimentations
 	* The true/false toggle on medication should be switched
 		changed to false based on the frequency at which one must take the specified medication So that the user can switch it to true. The code has been written, but it is yet to be tested
 	* User access to a storage of current meds and past medications
 	* Calandar for tracking medication use
 	-Refactor using Angular
 
-##Author:
+##Author
 Ashleigh Adams
