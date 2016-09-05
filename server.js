@@ -39,11 +39,11 @@ app.use('/users', userController);
 
 
 app.get('/', function(req,res){
-	res.render('index.ejs');
+    res.render('index.ejs');
 })
 
  app.listen(port, function(){
- 	console.log('How are you today dear?');
+    console.log('How are you today dear?');
  })
 
 

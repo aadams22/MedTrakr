@@ -1,79 +1,79 @@
-html	{
-	height: 100%;
+html  {
+  height: 100%;
 }
 body {
-	background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
-	
-	background-size: cover;
-	background-repeat: no-repeat;
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	margin: 0;
+  background-image: url('https://www.lifedatacorp.com/wp-content/uploads/2015/06/Road-Running.jpg');
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  margin: 0;
 }
 
 /*HEADER*/
 
 header {
-	margin: 1em;
-	position: absolute;
-	z-index: 3;
-	background: lightgrey;
-	opacity: .6;
-	/*height: 20%; width: 13%;*/
-	border-radius: 10px;
-	transition-property: 100%;
-	transition-duration: 1s;
-	transition-timing-function: easeInOutQuart;
+  margin: 1em;
+  position: absolute;
+  z-index: 3;
+  background: lightgrey;
+  opacity: .6;
+  /*height: 20%; width: 13%;*/
+  border-radius: 10px;
+  transition-property: 100%;
+  transition-duration: 1s;
+  transition-timing-function: easeInOutQuart;
 }
 
 header > ul {
-	padding: 2em;
+  padding: 2em;
 }
 
 header > ul > li {
-	padding-top: .5em;
-	font-size: 1em;
-	display: fixed;
+  padding-top: .5em;
+  font-size: 1em;
+  display: fixed;
 }
 
 header:hover {
-	height: 98%;
-	width: 98%;
-	text-align: center;
-	font-size: 2em;
-	opacity: .9;
+  height: 98%;
+  width: 98%;
+  text-align: center;
+  font-size: 2em;
+  opacity: .9;
 }
 
 #start-now {
-	padding: 1em;
-	border: 1px solid darkgrey;
+  padding: 1em;
+  border: 1px solid darkgrey;
 }
 
 #start-now:hover {
-	background: darkgrey;
+  background: darkgrey;
 }
 
 
 #editButton {
-	height: 38px; width: 12%;
+  height: 38px; width: 12%;
 }
 
 
 button {
-	height: 30px; width: 71%;
+  height: 30px; width: 71%;
 }
 
 button:hover {
-	background: darkgrey;
+  background: darkgrey;
 }
 
 #meds-edit-form {
-	background: lightgrey;
-	opacity: .9;
-	border-radius: 10px;
-	z-index: 4;
-	text-align: center;
-	height: 100%; width: 100%;
+  background: lightgrey;
+  opacity: .9;
+  border-radius: 10px;
+  z-index: 4;
+  text-align: center;
+  height: 100%; width: 100%;
 }
 
 
@@ -82,142 +82,142 @@ button:hover {
 /*THE SIZE OF THIS IS BASED OFF OF THE CONTENT WITHIN*/
 
 #home-container {
-	position: fixed;
-/*	height: 50%; width: 30%;*/
-	text-align: center;
-	/*border: 1px solid red;*/
-	background: lightgrey;
-	opacity: .6;
-	border-radius: 10px;
-/*	padding: 1em;
-	padding-bottom: 4em;*/
-	min-height: 50%;
-	min-width: 30%;
-	margin-left: 35%;
-	margin-right: 35%;
-	margin-bottom: 20%;
-	margin-top: 15%;
-	transition-property: 100%;
-	transition-duration: 1s;
-	transition-timing-function: easeInOutQuart;
+  position: fixed;
+/*  height: 50%; width: 30%;*/
+  text-align: center;
+  /*border: 1px solid red;*/
+  background: lightgrey;
+  opacity: .6;
+  border-radius: 10px;
+/*  padding: 1em;
+  padding-bottom: 4em;*/
+  min-height: 50%;
+  min-width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-bottom: 20%;
+  margin-top: 15%;
+  transition-property: 100%;
+  transition-duration: 1s;
+  transition-timing-function: easeInOutQuart;
 }
 
 #welcome {
-	font-size: 2em;
-	padding-top: 1em;
-	padding-left: 2em;
-	padding-right: 2em;
+  font-size: 2em;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 #tag-line {
-	padding-top: 2em;
-	padding-bottom: 3em;
-	font-weight: 100;
+  padding-top: 2em;
+  padding-bottom: 3em;
+  font-weight: 100;
 }
 
 #end-session {
-	border: 1px solid grey;
-	padding: .75em;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 15%;
-	margin-right: 15%;
-	opacity: .5;
+  border: 1px solid grey;
+  padding: .75em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 15%;
+  margin-right: 15%;
+  opacity: .5;
 }
 
 #end-session:hover {
-	background-color: darkgrey;
+  background-color: darkgrey;
 }
 
 #login-container {
-	padding: 1em;
+  padding: 1em;
 }
 
 input {
-	padding: 1em;
-	height: 1em; width: 60%;
+  padding: 1em;
+  height: 1em; width: 60%;
 }
 
 input:hover {
-	background-color: darkgrey;
+  background-color: darkgrey;
 
 }
 
 
 #home-container > ul {
-	padding: 20%;
+  padding: 20%;
 }
 
 /*================================*/
 /*FOR USER SHOW PAGE ELEMENTS */
 
 table {
-	border-collapse: collapse;
-	padding: 1em;
+  border-collapse: collapse;
+  padding: 1em;
 }
 
 th {
-	padding-left: 1%;
-	padding-right: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 td {
-	padding: 4%;
+  padding: 4%;
 }
 
 tr:nth-child(even) {
-	background: darkgrey;
+  background: darkgrey;
 }
 
 td:hover {
-	opacity: .9;
+  opacity: .9;
 }
 
 
 
 .meds-container {
-	display: inline-block;
-	overflow: hidden;
-	background: lightgrey;
-	opacity: .6;
-	margin-top: 1em;
-	margin-bottom: 5%;
-	border-radius: 10px;
-	height: 50px; width: 20%;
-	padding: 1em;
-	position: fixed;
-	z-index: 2;
-	margin-left: 18%;
+  display: inline-block;
+  overflow: hidden;
+  background: lightgrey;
+  opacity: .6;
+  margin-top: 1em;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  height: 50px; width: 20%;
+  padding: 1em;
+  position: fixed;
+  z-index: 2;
+  margin-left: 18%;
 }
 
 .meds-container > h3 {
-	padding-bottom: 70px;
+  padding-bottom: 70px;
 }
 
 #medcont2 {
-	width: 35%;
-	background: lightgrey;
-	opacity: .6;
-	border-radius: 10px;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	padding-left: 1em;
-	padding-right: 0;
-	margin: 1%;
-	float: right;
+  width: 35%;
+  background: lightgrey;
+  opacity: .6;
+  border-radius: 10px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 0;
+  margin: 1%;
+  float: right;
 }
 
 
 #medcont2 > input:hover {
-	background: darkgrey;
+  background: darkgrey;
 }
 
 #medcont1:hover {
-	text-align: center;
-	min-width: 325px;
-	height: 60%; width: 40%;
+  text-align: center;
+  min-width: 325px;
+  height: 60%; width: 40%;
 
-	opacity: .9;
+  opacity: .9;
 }
 
 /*================================*/
@@ -230,15 +230,15 @@ td:hover {
 }
 
 #profile-link {
-	border: 1px solid black;
-	padding: 1em;
-	padding-right: 3em;
-	padding-bottom: 3em;
+  border: 1px solid black;
+  padding: 1em;
+  padding-right: 3em;
+  padding-bottom: 3em;
 }
 
 #profile-link:hover {
-	background-color: darkgrey;
-	opacity: .6;
+  background-color: darkgrey;
+  opacity: .6;
 }
 
 /*========================*/
@@ -247,27 +247,27 @@ td:hover {
 /*USER NAME BOX*/
 
 #users-name {
-	position: absolute;
-	border: 1px solid black;
-	padding-top: 2em;
-	width: 30%;
-	z-index: -1;
-	margin-bottom: 10%;
-/*	margin-top: 65%;*/
-	margin-left: 2%;
-	font-size: 2.5em;
-	bottom: 0;
-/*	float: bottom;*/
-/*	margin: 20%;*/
+  position: absolute;
+  border: 1px solid black;
+  padding-top: 2em;
+  width: 30%;
+  z-index: -1;
+  margin-bottom: 10%;
+/*  margin-top: 65%;*/
+  margin-left: 2%;
+  font-size: 2.5em;
+  bottom: 0;
+/*  float: bottom;*/
+/*  margin: 20%;*/
 }
 
 li {
-	list-style: none;
+  list-style: none;
 }
 
 a {
-	color: black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 
@@ -277,31 +277,31 @@ a {
 /*PROFILE EDIT FORMS*/
 
 #profile-list {
-	margin-left: 20%;
+  margin-left: 20%;
 }
 
 #profile-list > li > h2 {
-	padding: 3%;
+  padding: 3%;
 }
 
 .list {
-	margin: 1%;
-	background: lightgrey;
-	opacity: .6;
-	border-radius: 10px;
-	height: 50px; width: 20%;
-	overflow: hidden;
-	display: inline-block;
+  margin: 1%;
+  background: lightgrey;
+  opacity: .6;
+  border-radius: 10px;
+  height: 50px; width: 20%;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .active {
-	margin-left: 10%;
-	height: 40%; width: 30%;
-	z-index: 6;
-	background: lightgrey;
-	border-radius: 10px;
-	opacity: .9;
-	padding: 10%;
+  margin-left: 10%;
+  height: 40%; width: 30%;
+  z-index: 6;
+  background: lightgrey;
+  border-radius: 10px;
+  opacity: .9;
+  padding: 10%;
 
 }
 
@@ -310,43 +310,43 @@ a {
 @media (max-width: 640px) { 
 
   #nav-container {
-  	margin-top: 1%;
-		height: 18%; width: 98%;
-		margin: 0 auto;
+    margin-top: 1%;
+    height: 18%; width: 98%;
+    margin: 0 auto;
   }
   header > ul > li {
-  	display: inline-block;
-  	padding-right: 7%; 
+    display: inline-block;
+    padding-right: 7%; 
   }
    #home-container {
-   	margin-top: 60%;
-   	margin-left: 1%;
-   	margin-right: 0;
-		height: 55%; width: 89%;
+    margin-top: 60%;
+    margin-left: 1%;
+    margin-right: 0;
+    height: 55%; width: 89%;
   }
   .meds-container {
-  	margin-left: 1%;
-  	margin-top: 40%;
+    margin-left: 1%;
+    margin-top: 40%;
   }
   #medcont2 {
-  	margin-top: 40%;
-  	width: 250px;	
+    margin-top: 40%;
+    width: 250px; 
   }
   #profile-list {
-  	margin-top: 30%;
+    margin-top: 30%;
   }
   #users-name {
-  	width: 95%;
+    width: 95%;
   }
   table {
-  	height: 55%; width: 89%;
+    height: 55%; width: 89%;
   }
 
 }
 
 
 @media (max-width: 1325px) {
-	body {
-		background-size: 1325px;
-	}
+  body {
+    background-size: 1325px;
+  }
 }

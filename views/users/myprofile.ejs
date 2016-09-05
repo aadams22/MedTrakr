@@ -1,69 +1,68 @@
-<!DOCTYPE html>	
-	<% include ../partials/header.ejs %>
-	
-	<ul id="profile-list">
-	<li class="list" id="aboutyou">
-		<h2>About you!</h2>
-		<form action="/users/<%=info.id%>/myprofile" method="POST">
-			<h3>Personal Info:</h3>
-			<input type="text" name="profile.firstName" placeholder="first name">
-			<input type="text" name="profile.lastName" placeholder="last name">
-			<input type="text" name="profile.dob" placeholder="MM/DD/YYYY">
-			
+<!DOCTYPE html> 
+  <% include ../partials/header.ejs %>
+  
+  <ul id="profile-list">
+  <li class="list" id="aboutyou">
+    <h2>About you!</h2>
+    <form action="/users/<%=info.id%>/myprofile" method="POST">
+      <h3>Personal Info:</h3>
+      <input type="text" name="profile.firstName" placeholder="first name">
+      <input type="text" name="profile.lastName" placeholder="last name">
+      <input type="text" name="profile.dob" placeholder="MM/DD/YYYY">
+      
 
-			<h3>Address:</h3>
-			<input type="text" name="profile.address.addType" placeholder="Home? Work?">
-			<input type="text" name="profile.address.aptNum" placeholder="Apt. Number">
-			<input type="text" name="profile.address.addr1" placeholder="Street Address">
-			<input type="text" name="profile.address.city" placeholder="City">
-			<input type="text" name="profile.address.state" placeholder="State">
-			<input type="text" name="profile.address.state" placeholder="Zip">
-			<input type="hidden" name="_method" value="PUT"/></br>
-			<input type="submit" value="Add">
-		</form>
-	</li>
+      <h3>Address:</h3>
+      <input type="text" name="profile.address.addType" placeholder="Home? Work?">
+      <input type="text" name="profile.address.aptNum" placeholder="Apt. Number">
+      <input type="text" name="profile.address.addr1" placeholder="Street Address">
+      <input type="text" name="profile.address.city" placeholder="City">
+      <input type="text" name="profile.address.state" placeholder="State">
+      <input type="text" name="profile.address.state" placeholder="Zip">
+      <input type="hidden" name="_method" value="PUT"/></br>
+      <input type="submit" value="Add">
+    </form>
+  </li>
 
-		
-		<li class="list" id="mydoctor">
-			<h2>My Doctor</h2>
-			<form action="/users/<%=info.id%>/myprofile" method="POST">
-				<input type="text" name="firstName" placeholder="First Name">
-				<input type="text" name="lastName" placeholder="Last Name">
-				<input type="text" name="email" placeholder="email">
-				<input type="text" name="phone" placeholder="Phone Number">
-				<!-- <input type="hidden" name="_method" value="PUT"/> -->
-				<input type="submit" value="Add Doctor">
-			</form>
-		</li>
+    
+  <li class="list" id="mydoctor">
+    <h2>My Doctor</h2>
+    <form action="/users/<%=info.id%>/myprofile" method="POST">
+      <input type="text" name="firstName" placeholder="First Name">
+      <input type="text" name="lastName" placeholder="Last Name">
+      <input type="text" name="email" placeholder="email">
+      <input type="text" name="phone" placeholder="Phone Number">
+      <!-- <input type="hidden" name="_method" value="PUT"/> -->
+      <input type="submit" value="Add Doctor">
+    </form>
+  </li>
 
-	<li class="list" id="settings">
-		<h2>Account Settings</h2>
-			<h3>To delete your account: </h3>
-			<form action="/users/<%=info.id%>/myprofile" method="POST">
-				<input type="hidden" name="_method" value="DELETE">
-				<button id="delete-button">Delete My Account</button>
-			</form>
-	</li>
+  <li class="list" id="settings">
+    <h2>Account Settings</h2>
+      <h3>To delete your account: </h3>
+      <form action="/users/<%=info.id%>/myprofile" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button id="delete-button">Delete My Account</button>
+      </form>
+  </li>
 </ul>
 
-	<div id="home-container">
-		<ul>
-			<%for(var i=0; i < info.length; i++){%>
-				<li><%=info[i].profile.firstName%></li>
-				<li><%=info[i].profile.lastName%></li>
-				<li><%=info[i].profile.dob%></li>
-				<li><%=info[i].profile.address.addrType%></li>
-				<li><%=info[i].profile.address.aptNum%></li>
-				<li><%=info[i].profile.address.addr1%></li>
-				<li><%=info[i].profile.address.city%></li>
-				<li><%=info[i].profile.address.state%></li>
-				<li><%=info[i].profile.address.zip%></li>
-			<%}%>
-		</ul>
-	</div>
+  <div id="home-container">
+    <ul>
+      <%for(var i=0; i < info.length; i++){%>
+        <li><%=info[i].profile.firstName%></li>
+        <li><%=info[i].profile.lastName%></li>
+        <li><%=info[i].profile.dob%></li>
+        <li><%=info[i].profile.address.addrType%></li>
+        <li><%=info[i].profile.address.aptNum%></li>
+        <li><%=info[i].profile.address.addr1%></li>
+        <li><%=info[i].profile.address.city%></li>
+        <li><%=info[i].profile.address.state%></li>
+        <li><%=info[i].profile.address.zip%></li>
+      <%}%>
+    </ul>
+  </div>
 
-
-	<h2 id="users-name"><%=info.firstName%> Your Profile </h2>
+  <h2 id="users-name"><%=info.firstName%> Your Profile </h2>
 
 </body>
 </html>

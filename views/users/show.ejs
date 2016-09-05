@@ -1,58 +1,53 @@
 <!DOCTYPE html>
 
-	<% include ../partials/header.ejs %>
+  <% include ../partials/header.ejs %>
 
+    <div id="medcont1"class="meds-container">
+      <h3>Add Medication</h3>
+        <form action="/users/<%=info.id%>" method="POST">
+          <input type="text" name="name" placeholder="name">
+          <input type="text" name="rx" placeholder="rX number">
+          <input type="text" name="dosage" placeholder="dosage">
+          <input type="text" name="directions" placeholder="directions">
+          <input type="text" name="refills" placeholder="refills">
+          <input type="text" name="frequency" placeholder="How often?">
+          <input type="text" name="pillNum" placeholder="Total Pills">
+          <input type="hidden" name="taken" value="false">
+          <input id="addMed"type="submit" value="Add">
+        </form>
+    </div>
 
-			<div id="medcont1"class="meds-container">
-				<h3>Add Medication</h3>
-					<form action="/users/<%=info.id%>" method="POST">
-						<input type="text" name="name" placeholder="name">
-						<input type="text" name="rx" placeholder="rX number">
-						<input type="text" name="dosage" placeholder="dosage">
-						<input type="text" name="directions" placeholder="directions">
-						<input type="text" name="refills" placeholder="refills">
-						<input type="text" name="frequency" placeholder="How often?">
-						<input type="text" name="pillNum" placeholder="Total Pills">
-						<input type="hidden" name="taken" value="false">
-						<input id="addMed"type="submit" value="Add">
-					</form>
-			</div>
+    <div id="medcont2">
+        <input id="editMed" type="text" placeholder="Search Medication">
+        <button id="editButton">Edit</button>
 
-			<div id="medcont2">
-					<input id="editMed" type="text" placeholder="Search Medication">
-					<button id="editButton">Edit</button>
+    </div>
 
-			</div>
+  
 
-		
+  <div id="home-container">
+  <h2>My Meds</h2>
+    <table>
+      <th>Medication</th>
+      <th>Dosage</th>
+      <th>Directions</th>
+      <th>Frequency</th>
+      <th>Remaining</th>
+      <th>Taken?</th>
+      <%for(var i=0; i < info.meds.length; i++){%>
+      <tr>
+        <td><%=info.meds[i].name%></td>
+        <td><%=info.meds[i].dosage%></td>
+        <td><%=info.meds[i].directions%></td>
+        <td><%=info.meds[i].frequency%></td>
+        <td><%=info.meds[i].pillNum%></td>
+        <td><%=info.meds[i].taken%></td>
+      </tr>
+      <%}%>
+    </table>
+  </div>
 
-		<div id="home-container">
-		<h2>My Meds</h2>
-			<table>
-				<th>Medication</th>
-				<th>Dosage</th>
-				<th>Directions</th>
-				<th>Frequency</th>
-				<th>Remaining</th>
-				<th>Taken?</th>
-				<%for(var i=0; i < info.meds.length; i++){%>
-				<tr>
-					<td><%=info.meds[i].name%></td>
-					<td><%=info.meds[i].dosage%></td>
-					<td><%=info.meds[i].directions%></td>
-					<td><%=info.meds[i].frequency%></td>
-					<td><%=info.meds[i].pillNum%></td>
-					<td><%=info.meds[i].taken%></td>
-				</tr>
-				<%}%>
-			</table>
-		</div>
-
-		<h2 id="users-name">Hi <%=info.profile.firstName%></h2>
-
-
-
-
+  <h2 id="users-name">Hi <%=info.profile.firstName%></h2>
 
 </body>
 </html>

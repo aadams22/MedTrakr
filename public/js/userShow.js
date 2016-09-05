@@ -22,30 +22,30 @@ var $endSessionButton = $('#end-session');
 // console.log($endSessionButton);
 
 $loginButton.click(function(){
-	// checkLoggin();
-	// console.log("login button pressed");
-	loggedIn();
-	localStorage.currentUser = "true"; 
-	// console.log(localStorage.currentUser);
-	// console.log('button click works');
+  // checkLoggin();
+  // console.log("login button pressed");
+  loggedIn();
+  localStorage.currentUser = "true"; 
+  // console.log(localStorage.currentUser);
+  // console.log('button click works');
 });
 
 $signupButton.click(function(){
-	loggedIn();
-	localStorage.currentUser = "true"; 
+  loggedIn();
+  localStorage.currentUser = "true"; 
 })
 
 
 
 $endSessionButton.click(function(){
-	localStorage.currentUser = "false";
+  localStorage.currentUser = "false";
 });
 
 
 var determineUser = function (){
-	if(localStorage.currentUser === "true"){
-		loggedIn()
-	}
+  if(localStorage.currentUser === "true"){
+    loggedIn()
+  }
 };
 
 determineUser();
@@ -56,7 +56,7 @@ determineUser();
 
 // //thought process. needs to be either in the controller or server.js
 // if(Date.now == (data.meds.takenTimes + data.meds.frequency)) {
-// 	data.meds.taken = false;
+//  data.meds.taken = false;
 // }
 
 
@@ -68,45 +68,45 @@ determineUser();
 //===============================================================
 
 var theAttempt = function(trueOrFalseData, dataId) {
-	// console.log('theAttempt is being run');
-	// console.log('this is falseData: ', falseData);
-		$.ajax({
-			url: window.location.pathname + '/json/meds/' + dataId,
-			method: 'PUT',
-			data: {taken : !trueOrFalseData},
-		}).done(function(response) {
-			// redirect . . . . //location.reload is choppy and takes too long. 
-			//find a better method.
-			location.reload();
-			// console.log('theAttemt ajax is done');
-		})
+  // console.log('theAttempt is being run');
+  // console.log('this is falseData: ', falseData);
+    $.ajax({
+      url: window.location.pathname + '/json/meds/' + dataId,
+      method: 'PUT',
+      data: {taken : !trueOrFalseData},
+    }).done(function(response) {
+      // redirect . . . . //location.reload is choppy and takes too long. 
+      //find a better method.
+      location.reload();
+      // console.log('theAttemt ajax is done');
+    })
 }
 
 
 
 $('tr').click(function(e){
-	// console.log('addMed click works');
-	var firstChild = $(this).children().first();
-	var firstChildString = $(firstChild).html();
-	// console.log(firstChildString);
-		$.ajax(window.location.pathname + '/json/meds')
-		.done(function(data, e)	{
-			for (var i = 0; i < data.length; i++) {
-				// console.log("this is data.name ", data[i].name);
-				// console.log(typeof firstChild);
-				// console.log(typeof data[i].name)
-					// console.log('new run');
-				if(data[i].name == firstChildString) {	
-					// console.log('success! ', data[i].taken);
-					// return data[i].taken = true;
-					var trueOrFalseData = data[i].taken; 
-					var dataId = data[i]._id;
-					// console.log('this is dataId: ', dataId)
-					// console.log('this is falseData: ',falseData);
-					return theAttempt(trueOrFalseData, dataId);
-				} //<-- if statement
-			}	//<--for loop
-		}); //<--ajax request
+  // console.log('addMed click works');
+  var firstChild = $(this).children().first();
+  var firstChildString = $(firstChild).html();
+  // console.log(firstChildString);
+    $.ajax(window.location.pathname + '/json/meds')
+    .done(function(data, e) {
+      for (var i = 0; i < data.length; i++) {
+        // console.log("this is data.name ", data[i].name);
+        // console.log(typeof firstChild);
+        // console.log(typeof data[i].name)
+          // console.log('new run');
+        if(data[i].name == firstChildString) {  
+          // console.log('success! ', data[i].taken);
+          // return data[i].taken = true;
+          var trueOrFalseData = data[i].taken; 
+          var dataId = data[i]._id;
+          // console.log('this is dataId: ', dataId)
+          // console.log('this is falseData: ',falseData);
+          return theAttempt(trueOrFalseData, dataId);
+        } //<-- if statement
+      } //<--for loop
+    }); //<--ajax request
 
 }) //<-- <tr> click
 
@@ -114,20 +114,20 @@ $('tr').click(function(e){
 
 
 var changeTakenValue = function() {
-	$.ajax(window.location.pathname + '/json/meds')
-	.done(function(result){
-		var currentTime = new Date().getTime();
-		// console.log(currentTime);
-		var lastTimeTaken = result.meds.takenTimes[0];
-		// console.log(lastTimeTaken);
-		var frequency = result.meds.frequency;
-		// console.log(frequency);
+  $.ajax(window.location.pathname + '/json/meds')
+  .done(function(result){
+    var currentTime = new Date().getTime();
+    // console.log(currentTime);
+    var lastTimeTaken = result.meds.takenTimes[0];
+    // console.log(lastTimeTaken);
+    var frequency = result.meds.frequency;
+    // console.log(frequency);
 
-		if(currentTime + (frequency * 10000) >= lastTimeTaken){
-			result.meds.taken = false;
-		}
+    if(currentTime + (frequency * 10000) >= lastTimeTaken){
+      result.meds.taken = false;
+    }
 
-	})
+  })
 }; //<--changeTaken
 
 // changeTaken();
@@ -142,45 +142,45 @@ var changeTakenValue = function() {
 
 var someFunction = function(data){
 
-	// console.log("someFunction works");
-	var theMed = $('#editMed').val();
-	var pathToString = window.location.pathname.split('/');
-	// console.log("this is pathToString ", pathToString);
-	// console.log("this is pathToString2 ", pathToString[2]);
-	for (var i = 0; i < data.length; i++) {
-		// console.log("this is data.name ", data[i].name);
-		// console.log(typeof data[i].name)
-		// console.log("this is entered value ", theMed);
-			// console.log('new run');
-		if(data[i].name == theMed) {	
+  // console.log("someFunction works");
+  var theMed = $('#editMed').val();
+  var pathToString = window.location.pathname.split('/');
+  // console.log("this is pathToString ", pathToString);
+  // console.log("this is pathToString2 ", pathToString[2]);
+  for (var i = 0; i < data.length; i++) {
+    // console.log("this is data.name ", data[i].name);
+    // console.log(typeof data[i].name)
+    // console.log("this is entered value ", theMed);
+      // console.log('new run');
+    if(data[i].name == theMed) {  
 
-			var form = $("<div id='meds-edit-form'><form id='theForm' action='/users/" + pathToString[2] + "' method='POST'></form></div>");
-			$('body').append(form);
-			
+      var form = $("<div id='meds-edit-form'><form id='theForm' action='/users/" + pathToString[2] + "' method='POST'></form></div>");
+      $('body').append(form);
+      
 
-				var inputVals = $("<input type='text' name='name' value='" + data[i].name + "'>" +
-					"<input type='text' name='rx' value='" + data[i].rx + "'>" +
-					"<input type='text' name='dosage' value='" + data[i].dosage + "'>" +
-					"<input type='text' name='directions' value='" + data[i].directions + "'>" +
-					"<input type='text' name='refills' value='" + data[i].refills + "'>" +
-					"<input type='text' name='frequency' value='" + data[i].frequency + "'>" +
-					"<input type='text' name='pillNum' value='" + data[i].pillNum + "'>" +
-					"<input type='hidden' name='id' value='" + data[i]._id + "'>" +
-					"<input type='hidden' name='_method' value='PUT'/>" +
-					"<button id='send-med-edit' type='submit'>Edit</button>").appendTo("#theForm");
-		
-		}
-	};
+        var inputVals = $("<input type='text' name='name' value='" + data[i].name + "'>" +
+          "<input type='text' name='rx' value='" + data[i].rx + "'>" +
+          "<input type='text' name='dosage' value='" + data[i].dosage + "'>" +
+          "<input type='text' name='directions' value='" + data[i].directions + "'>" +
+          "<input type='text' name='refills' value='" + data[i].refills + "'>" +
+          "<input type='text' name='frequency' value='" + data[i].frequency + "'>" +
+          "<input type='text' name='pillNum' value='" + data[i].pillNum + "'>" +
+          "<input type='hidden' name='id' value='" + data[i]._id + "'>" +
+          "<input type='hidden' name='_method' value='PUT'/>" +
+          "<button id='send-med-edit' type='submit'>Edit</button>").appendTo("#theForm");
+    
+    }
+  };
 };
 
 var editMed = function(){
-	var theMed = $('#editMed').val();
-	$.ajax(window.location.pathname + '/json/meds').done(someFunction);
+  var theMed = $('#editMed').val();
+  $.ajax(window.location.pathname + '/json/meds').done(someFunction);
 }; //<--editMed
 
 $('#editButton').bind('click', function(e){
-	editMed();
-	// console.log('editMed click works');
+  editMed();
+  // console.log('editMed click works');
 });
 
 
@@ -188,8 +188,8 @@ $('#editButton').bind('click', function(e){
 //APPENDS EDIT PROFILE AND ADD DOCTOR ON /myprofile: adds new class name
 
 $('#profile-list').children().click(function(){
-	// console.log('profile click works');
-	$(this).removeClass('list').addClass('active');
+  // console.log('profile click works');
+  $(this).removeClass('list').addClass('active');
 });
 
 
@@ -205,11 +205,11 @@ $('#profile-list').children().click(function(){
 
 
 var loggedIn = function() {
-			var pathToString = window.location.pathname.split('/');
-			// console.log(pathToString);
-			// console.log(pathToString[2]);
-		$("<li><a href='/users/" + pathToString[2] + "/myprofile'>Profile</a></li>").appendTo('#headerList');
-		$("<li><a href='/users/" + pathToString[2] + "'>My Meds</a></li>").appendTo('#headerList');
+      var pathToString = window.location.pathname.split('/');
+      // console.log(pathToString);
+      // console.log(pathToString[2]);
+    $("<li><a href='/users/" + pathToString[2] + "/myprofile'>Profile</a></li>").appendTo('#headerList');
+    $("<li><a href='/users/" + pathToString[2] + "'>My Meds</a></li>").appendTo('#headerList');
 } //<---loggedIn
 
 
@@ -228,27 +228,27 @@ var loggedIn = function() {
 
 
 // var allFalse = function(takenData){
-// 	$.ajax({
-// 		url: window.location.pathname + '/json/meds',
-// 		method: 'POST',
-// 		data: takenData,
-// 	})
+//  $.ajax({
+//    url: window.location.pathname + '/json/meds',
+//    method: 'POST',
+//    data: takenData,
+//  })
 // } //<--allFalse
 
 // var checkUndefined = function(data){
-// 	console.log(data.taken);
-// 	for (var i = 0; i < data.length; i++) {
-// 		if(data[i].taken == undefined) {
-// 			var takenData = data[i].taken;
-// 			console.log(takenData);
-// 			// allFalse(takenData);
-// 		}
-// 	};
+//  console.log(data.taken);
+//  for (var i = 0; i < data.length; i++) {
+//    if(data[i].taken == undefined) {
+//      var takenData = data[i].taken;
+//      console.log(takenData);
+//      // allFalse(takenData);
+//    }
+//  };
 
 // } //<--checkUndefined
 
 // var ajaxAllFalse = function() {
-// 	$.ajax(window.location.pathname + '/json/meds').done(checkUndefined);
+//  $.ajax(window.location.pathname + '/json/meds').done(checkUndefined);
 // } //<--ajaxAllFalse
 
 
